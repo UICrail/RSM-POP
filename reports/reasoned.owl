@@ -1,0 +1,413 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://cdm.ovh/rsm/pop#"
+     xml:base="https://cdm.ovh/rsm/pop"
+     xmlns:dul="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:pop="https://cdm.ovh/rsm/pop#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:prov="http://www.w3.org/ns/prov#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:sosa="http://www.w3.org/ns/sosa/">
+    <owl:Ontology rdf:about="https://cdm.ovh/rsm/pop">
+        <owl:versionIRI rdf:resource="https://cdm.ovh/rsm/pop/0.1"/>
+        <rdfs:comment xml:lang="en">All imports were eliminated after overall consistency between DUL, SOSA/SSN, and POP was ascertained.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Ontology for Prescriptions (subclass of dul:Description), Observations, Predictions. Built on DUL, PROV-O, and SOSA/SSN. Also considers Specifications and Corrections (as subclasses of Prescriptions).
+
+POPs and Current State of some Digital Twin (out of scope here) are formally similar, but epistemically quite different: POPs are facts, hence immutable. Facts can be wrong or incomplete, but remain as they were delivered or computed until they get discarded.</rdfs:comment>
+        <rdfs:label xml:lang="en">Prescription, Observation, Prediction ontology</rdfs:label>
+        <owl:versionInfo>0.1</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#dateTimeStamp -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRegion -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRegion"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isQualityOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isQualityOf"/>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/observedProperty -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/observedProperty">
+        <rdfs:subPropertyOf rdf:resource="https://cdm.ovh/rsm/pop#aboutProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://cdm.ovh/rsm/pop#aboutProperty -->
+
+    <owl:ObjectProperty rdf:about="https://cdm.ovh/rsm/pop#aboutProperty">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://cdm.ovh/rsm/pop#AssertedQuality"/>
+        <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+        <rdfs:comment xml:lang="en">Identifies the externally-defined property/parameter that some quality concerns</rdfs:comment>
+        <rdfs:label xml:lang="en">about property</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://cdm.ovh/rsm/pop#boundariesNode -->
+
+    <owl:ObjectProperty rdf:about="https://cdm.ovh/rsm/pop#boundariesNode">
+        <rdfs:domain rdf:resource="https://cdm.ovh/rsm/pop#AssertedValue"/>
+        <rdfs:comment xml:lang="en">Can be expressed as an interval (hence &quot;boundaries&quot;), or a distribution, a confidence interval, etc.</rdfs:comment>
+        <rdfs:label xml:lang="en">boundaries node</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://cdm.ovh/rsm/pop#hasAssertedValue -->
+
+    <owl:ObjectProperty rdf:about="https://cdm.ovh/rsm/pop#hasAssertedValue">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRegion"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://cdm.ovh/rsm/pop#AssertedQuality"/>
+        <rdfs:range rdf:resource="https://cdm.ovh/rsm/pop#AssertedValue"/>
+        <rdfs:comment xml:lang="en">provides the asserted value (avoiding the dul:Region term, which may be confusing), which may be a quantity, an enumerated item etc., and come with a qualification (tolerance, uncertainty...).</rdfs:comment>
+        <rdfs:label xml:lang="en">has asserted value</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://cdm.ovh/rsm/pop#hasSource -->
+
+    <owl:ObjectProperty rdf:about="https://cdm.ovh/rsm/pop#hasSource">
+        <rdfs:domain rdf:resource="https://cdm.ovh/rsm/pop#AssertedQuality"/>
+        <rdfs:range rdf:resource="https://cdm.ovh/rsm/pop#Source"/>
+        <rdfs:comment xml:lang="en">provides the source of an assertion. It can be a description or a process or an activity (see under Sources).</rdfs:comment>
+        <rdfs:label xml:lang="en">has source</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://cdm.ovh/rsm/pop#sourceKind -->
+
+    <owl:ObjectProperty rdf:about="https://cdm.ovh/rsm/pop#sourceKind">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://cdm.ovh/rsm/pop#AssertedQuality"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:label xml:lang="en">source kind</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://cdm.ovh/rsm/pop#validDuring -->
+
+    <owl:ObjectProperty rdf:about="https://cdm.ovh/rsm/pop#validDuring">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://cdm.ovh/rsm/pop#AssertedQuality"/>
+        <rdfs:range rdf:resource="https://cdm.ovh/rsm/pop#AssertedTimeInterval"/>
+        <rdfs:comment xml:lang="en">Provides a time validity interval for the asserted quality. An instant is (following DUL convention) a degenerated interval, with Start=End. Intervals can be open-ended.</rdfs:comment>
+        <rdfs:label xml:lang="en">valid during</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://cdm.ovh/rsm/pop#valueNode -->
+
+    <owl:ObjectProperty rdf:about="https://cdm.ovh/rsm/pop#valueNode">
+        <rdfs:domain rdf:resource="https://cdm.ovh/rsm/pop#AssertedValue"/>
+        <rdfs:comment xml:lang="en">A value, in any form : a QUDT value, ...</rdfs:comment>
+        <rdfs:label xml:lang="en">value node</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://cdm.ovh/rsm/pop#intervalEnd -->
+
+    <owl:DatatypeProperty rdf:about="https://cdm.ovh/rsm/pop#intervalEnd">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://cdm.ovh/rsm/pop#AssertedTimeInterval"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+        <rdfs:label xml:lang="en">interval end</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://cdm.ovh/rsm/pop#intervalStart -->
+
+    <owl:DatatypeProperty rdf:about="https://cdm.ovh/rsm/pop#intervalStart">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://cdm.ovh/rsm/pop#AssertedTimeInterval"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+        <rdfs:label xml:lang="en">interval start</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://cdm.ovh/rsm/pop#value -->
+
+    <owl:DatatypeProperty rdf:about="https://cdm.ovh/rsm/pop#value">
+        <rdfs:domain rdf:resource="https://cdm.ovh/rsm/pop#AssertedQuality"/>
+        <rdfs:label xml:lang="en">value</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Process -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Process"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Region -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Region"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#TimeInterval -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#TimeInterval"/>
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#Property -->
+
+    <owl:Class rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Concept -->
+
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept">
+        <rdfs:comment xml:lang="en">in the present context: the concept scheme should include &quot;Specification&quot;, &quot;Correction&quot;, &quot;Observation&quot;, &quot;Prediction&quot;.
+While redundant with the classification of assertion sources, this property is meant to ease querying.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Activity -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Activity"/>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/Observation -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/sosa/Observation"/>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/Result -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/sosa/Result">
+        <rdfs:subClassOf rdf:resource="https://cdm.ovh/rsm/pop#AssertedValue"/>
+    </owl:Class>
+    
+
+
+    <!-- https://cdm.ovh/rsm/pop#AssertedQuality -->
+
+    <owl:Class rdf:about="https://cdm.ovh/rsm/pop#AssertedQuality">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isQualityOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://cdm.ovh/rsm/pop#aboutProperty"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Asserted quality</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://cdm.ovh/rsm/pop#AssertedTimeInterval -->
+
+    <owl:Class rdf:about="https://cdm.ovh/rsm/pop#AssertedTimeInterval">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#TimeInterval"/>
+        <rdfs:comment xml:lang="en">a sosa:resultTime is equivalent to a degenerated pop:AssertedInterval. In general, if the observation period is an interval, it will result in an AssertedInterval ending at the resultTime.</rdfs:comment>
+        <rdfs:label xml:lang="en">Asserted time interval</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://cdm.ovh/rsm/pop#AssertedValue -->
+
+    <owl:Class rdf:about="https://cdm.ovh/rsm/pop#AssertedValue">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Region"/>
+        <rdfs:comment xml:lang="en">The value (quality or quantity) and its uncertainty or tolerance, in most generic form.</rdfs:comment>
+        <rdfs:label>Asserted value</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://cdm.ovh/rsm/pop#Correction -->
+
+    <owl:Class rdf:about="https://cdm.ovh/rsm/pop#Correction">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Process"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:subClassOf rdf:resource="https://cdm.ovh/rsm/pop#Source"/>
+        <rdfs:label xml:lang="en">Correction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://cdm.ovh/rsm/pop#Observation -->
+
+    <owl:Class rdf:about="https://cdm.ovh/rsm/pop#Observation">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <rdfs:subClassOf rdf:resource="https://cdm.ovh/rsm/pop#Source"/>
+        <rdfs:label xml:lang="en">Observation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://cdm.ovh/rsm/pop#Prediction -->
+
+    <owl:Class rdf:about="https://cdm.ovh/rsm/pop#Prediction">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Process"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:subClassOf rdf:resource="https://cdm.ovh/rsm/pop#Source"/>
+        <rdfs:comment xml:lang="en">The activity/process that produces predicted asserted qualities (not the predicted value itself)</rdfs:comment>
+        <rdfs:label xml:lang="en">Prediction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://cdm.ovh/rsm/pop#Prescription -->
+
+    <owl:Class rdf:about="https://cdm.ovh/rsm/pop#Prescription">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description"/>
+        <rdfs:subClassOf rdf:resource="https://cdm.ovh/rsm/pop#Source"/>
+        <rdfs:label xml:lang="en">Prescription</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://cdm.ovh/rsm/pop#Source -->
+
+    <owl:Class rdf:about="https://cdm.ovh/rsm/pop#Source">
+        <rdfs:label xml:lang="en">Source</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://cdm.ovh/rsm/pop#Specification -->
+
+    <owl:Class rdf:about="https://cdm.ovh/rsm/pop#Specification">
+        <rdfs:subClassOf rdf:resource="https://cdm.ovh/rsm/pop#Prescription"/>
+        <rdfs:label xml:lang="en">Specification</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://cdm.ovh/rsm/pop#StateEstimation -->
+
+    <owl:Class rdf:about="https://cdm.ovh/rsm/pop#StateEstimation">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Process"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:subClassOf rdf:resource="https://cdm.ovh/rsm/pop#Source"/>
+        <rdfs:comment xml:lang="en">another source kind that may involve data gap-filling, intra- or extrapolation, filtering, reconciliation, and assorted decision points. Usually resting on multiple sources.</rdfs:comment>
+        <rdfs:label xml:lang="en">State estimation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://cdm.ovh/rsm/pop#Correction"/>
+            <rdf:Description rdf:about="https://cdm.ovh/rsm/pop#Observation"/>
+            <rdf:Description rdf:about="https://cdm.ovh/rsm/pop#Prediction"/>
+            <rdf:Description rdf:about="https://cdm.ovh/rsm/pop#Prescription"/>
+            <rdf:Description rdf:about="https://cdm.ovh/rsm/pop#StateEstimation"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi -->
+
