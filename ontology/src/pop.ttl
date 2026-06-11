@@ -1,0 +1,276 @@
+@prefix : <https://cdm.ovh/rsm/pop#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pop: <https://cdm.ovh/rsm/pop#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@base <https://cdm.ovh/rsm/pop> .
+
+<https://cdm.ovh/rsm/pop> rdf:type owl:Ontology ;
+                           owl:versionIRI <https://cdm.ovh/rsm/pop/0.1> ;
+                           rdfs:comment "All imports were eliminated after overall consistency between DUL, SOSA/SSN, and POP was ascertained."@en ,
+                                        """Ontology for Prescriptions (subclass of dul:Description), Observations, Predictions. Built on DUL, PROV-O, and SOSA/SSN. Also considers Specifications and Corrections (as subclasses of Prescriptions).
+
+POPs and Current State of some Digital Twin (out of scope here) are formally similar, but epistemically quite different: POPs are facts, hence immutable. Facts can be wrong or incomplete, but remain as they were delivered or computed until they get discarded."""@en ;
+                           rdfs:label "Prescription, Observation, Prediction ontology"@en ;
+                           owl:versionInfo "0.1" .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#dateTimeStamp
+xsd:dateTimeStamp rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRegion
+dul:hasRegion rdf:type owl:ObjectProperty .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isQualityOf
+dul:isQualityOf rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/observedProperty
+sosa:observedProperty rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf pop:aboutProperty .
+
+
+###  https://cdm.ovh/rsm/pop#aboutProperty
+pop:aboutProperty rdf:type owl:ObjectProperty ,
+                           owl:FunctionalProperty ;
+                  rdfs:domain pop:AssertedQuality ;
+                  rdfs:range rdf:Property ;
+                  rdfs:comment "Identifies the externally-defined property/parameter that some quality concerns"@en ;
+                  rdfs:label "about property"@en .
+
+
+###  https://cdm.ovh/rsm/pop#boundariesNode
+pop:boundariesNode rdf:type owl:ObjectProperty ;
+                   rdfs:domain pop:AssertedValue ;
+                   rdfs:comment "Can be expressed as an interval (hence \"boundaries\"), or a distribution, a confidence interval, etc."@en ;
+                   rdfs:label "boundaries node"@en .
+
+
+###  https://cdm.ovh/rsm/pop#hasAssertedValue
+pop:hasAssertedValue rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf dul:hasRegion ;
+                     rdf:type owl:FunctionalProperty ;
+                     rdfs:domain pop:AssertedQuality ;
+                     rdfs:range pop:AssertedValue ;
+                     rdfs:comment "provides the asserted value (avoiding the dul:Region term, which may be confusing), which may be a quantity, an enumerated item etc., and come with a qualification (tolerance, uncertainty...)."@en ;
+                     rdfs:label "has asserted value"@en .
+
+
+###  https://cdm.ovh/rsm/pop#hasSource
+pop:hasSource rdf:type owl:ObjectProperty ;
+              rdfs:domain pop:AssertedQuality ;
+              rdfs:range pop:Source ;
+              rdfs:comment "provides the source of an assertion. It can be a description or a process or an activity (see under Sources)."@en ;
+              rdfs:label "has source"@en .
+
+
+###  https://cdm.ovh/rsm/pop#sourceKind
+pop:sourceKind rdf:type owl:ObjectProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain pop:AssertedQuality ;
+               rdfs:range skos:Concept ;
+               rdfs:label "source kind"@en .
+
+
+###  https://cdm.ovh/rsm/pop#validDuring
+pop:validDuring rdf:type owl:ObjectProperty ,
+                         owl:FunctionalProperty ;
+                rdfs:domain pop:AssertedQuality ;
+                rdfs:range pop:AssertedTimeInterval ;
+                rdfs:comment "Provides a time validity interval for the asserted quality. An instant is (following DUL convention) a degenerated interval, with Start=End. Intervals can be open-ended."@en ;
+                rdfs:label "valid during"@en .
+
+
+###  https://cdm.ovh/rsm/pop#valueNode
+pop:valueNode rdf:type owl:ObjectProperty ;
+              rdfs:domain pop:AssertedValue ;
+              rdfs:comment "A value, in any form : a QUDT value, ..."@en ;
+              rdfs:label "value node"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://cdm.ovh/rsm/pop#intervalEnd
+pop:intervalEnd rdf:type owl:DatatypeProperty ,
+                         owl:FunctionalProperty ;
+                rdfs:domain pop:AssertedTimeInterval ;
+                rdfs:range xsd:dateTimeStamp ;
+                rdfs:label "interval end"@en .
+
+
+###  https://cdm.ovh/rsm/pop#intervalStart
+pop:intervalStart rdf:type owl:DatatypeProperty ,
+                           owl:FunctionalProperty ;
+                  rdfs:domain pop:AssertedTimeInterval ;
+                  rdfs:range xsd:dateTimeStamp ;
+                  rdfs:label "interval start"@en .
+
+
+###  https://cdm.ovh/rsm/pop#value
+pop:value rdf:type owl:DatatypeProperty ;
+          rdfs:domain pop:AssertedQuality ;
+          rdfs:label "value"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description
+dul:Description rdf:type owl:Class .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity
+dul:Entity rdf:type owl:Class .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Process
+dul:Process rdf:type owl:Class .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality
+dul:Quality rdf:type owl:Class .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Region
+dul:Region rdf:type owl:Class .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#TimeInterval
+dul:TimeInterval rdf:type owl:Class .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#Property
+rdf:Property rdf:type owl:Class .
+
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+skos:Concept rdf:type owl:Class ;
+             rdfs:comment """in the present context: the concept scheme should include \"Specification\", \"Correction\", \"Observation\", \"Prediction\".
+While redundant with the classification of assertion sources, this property is meant to ease querying."""@en .
+
+
+###  http://www.w3.org/ns/prov#Activity
+prov:Activity rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Observation
+sosa:Observation rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Result
+sosa:Result rdf:type owl:Class ;
+            rdfs:subClassOf pop:AssertedValue .
+
+
+###  https://cdm.ovh/rsm/pop#AssertedQuality
+pop:AssertedQuality rdf:type owl:Class ;
+                    rdfs:subClassOf dul:Quality ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty dul:isQualityOf ;
+                                      owl:someValuesFrom dul:Entity
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty pop:aboutProperty ;
+                                      owl:someValuesFrom owl:Thing
+                                    ] ;
+                    rdfs:label "Asserted quality"@en .
+
+
+###  https://cdm.ovh/rsm/pop#AssertedTimeInterval
+pop:AssertedTimeInterval rdf:type owl:Class ;
+                         rdfs:subClassOf dul:TimeInterval ;
+                         rdfs:comment "a sosa:resultTime is equivalent to a degenerated pop:AssertedInterval. In general, if the observation period is an interval, it will result in an AssertedInterval ending at the resultTime."@en ;
+                         rdfs:label "Asserted time interval"@en .
+
+
+###  https://cdm.ovh/rsm/pop#AssertedValue
+pop:AssertedValue rdf:type owl:Class ;
+                  rdfs:subClassOf dul:Region ;
+                  rdfs:comment "The value (quality or quantity) and its uncertainty or tolerance, in most generic form."@en ;
+                  rdfs:label "Asserted value" .
+
+
+###  https://cdm.ovh/rsm/pop#Correction
+pop:Correction rdf:type owl:Class ;
+               rdfs:subClassOf dul:Process ,
+                               prov:Activity ,
+                               pop:Source ;
+               rdfs:label "Correction"@en .
+
+
+###  https://cdm.ovh/rsm/pop#Observation
+pop:Observation rdf:type owl:Class ;
+                rdfs:subClassOf sosa:Observation ,
+                                pop:Source ;
+                rdfs:label "Observation"@en .
+
+
+###  https://cdm.ovh/rsm/pop#Prediction
+pop:Prediction rdf:type owl:Class ;
+               rdfs:subClassOf dul:Process ,
+                               prov:Activity ,
+                               pop:Source ;
+               rdfs:comment "The activity/process that produces predicted asserted qualities (not the predicted value itself)"@en ;
+               rdfs:label "Prediction"@en .
+
+
+###  https://cdm.ovh/rsm/pop#Prescription
+pop:Prescription rdf:type owl:Class ;
+                 rdfs:subClassOf dul:Description ,
+                                 pop:Source ;
+                 rdfs:label "Prescription"@en .
+
+
+###  https://cdm.ovh/rsm/pop#Source
+pop:Source rdf:type owl:Class ;
+           rdfs:label "Source"@en .
+
+
+###  https://cdm.ovh/rsm/pop#Specification
+pop:Specification rdf:type owl:Class ;
+                  rdfs:subClassOf pop:Prescription ;
+                  rdfs:label "Specification"@en .
+
+
+###  https://cdm.ovh/rsm/pop#StateEstimation
+pop:StateEstimation rdf:type owl:Class ;
+                    rdfs:subClassOf dul:Process ,
+                                    prov:Activity ,
+                                    pop:Source ;
+                    rdfs:comment "another source kind that may involve data gap-filling, intra- or extrapolation, filtering, reconciliation, and assorted decision points. Usually resting on multiple sources."@en ;
+                    rdfs:label "State estimation"@en .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( pop:Correction
+                pop:Observation
+                pop:Prediction
+                pop:Prescription
+                pop:StateEstimation
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi
