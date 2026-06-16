@@ -1,0 +1,1295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphol version="3">
+  <project name="POP" version="https://cdm.ovh/rsm/pop/0.2/pop">
+    <ontology iri="https://cdm.ovh/rsm/pop/pop" prefix="pop" addLabelFromUserInput="0" lang="en" addLabelFromSimpleName="0">
+      <imports/>
+      <prefixes>
+        <prefix>
+          <value>dc</value>
+          <namespace>http://purl.org/dc/elements/1.1/</namespace>
+        </prefix>
+        <prefix>
+          <value>dul</value>
+          <namespace>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#</namespace>
+        </prefix>
+        <prefix>
+          <value>owl</value>
+          <namespace>http://www.w3.org/2002/07/owl#</namespace>
+        </prefix>
+        <prefix>
+          <value>pop</value>
+          <namespace>https://cdm.ovh/rsm/pop/pop#</namespace>
+        </prefix>
+        <prefix>
+          <value>prov</value>
+          <namespace>http://www.w3.org/ns/prov#</namespace>
+        </prefix>
+        <prefix>
+          <value>rdf</value>
+          <namespace>http://www.w3.org/1999/02/22-rdf-syntax-ns#</namespace>
+        </prefix>
+        <prefix>
+          <value>rdfs</value>
+          <namespace>http://www.w3.org/2000/01/rdf-schema#</namespace>
+        </prefix>
+        <prefix>
+          <value>skos</value>
+          <namespace>http://www.w3.org/2004/02/skos/core#</namespace>
+        </prefix>
+        <prefix>
+          <value>sosa</value>
+          <namespace>http://www.w3.org/ns/sosa/</namespace>
+        </prefix>
+        <prefix>
+          <value>xml</value>
+          <namespace>http://www.w3.org/XML/1998/namespace</namespace>
+        </prefix>
+        <prefix>
+          <value>xsd</value>
+          <namespace>http://www.w3.org/2001/XMLSchema#</namespace>
+        </prefix>
+      </prefixes>
+      <datatypes>
+        <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+        <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral</datatype>
+        <datatype>http://www.w3.org/2000/01/rdf-schema#Literal</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#NCName</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#NMTOKEN</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#Name</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#anyURI</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#base64Binary</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#boolean</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#byte</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#dateTime</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#dateTimeStamp</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#decimal</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#double</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#float</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#hexBinary</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#int</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#integer</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#language</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#long</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#negativeInteger</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#nonNegativeInteger</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#nonPositiveInteger</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#normalizedString</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#positiveInteger</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#short</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#string</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#token</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#unsignedByte</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#unsignedInt</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#unsignedLong</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#unsignedShort</datatype>
+        <datatype>http://www.w3.org/2002/07/owl#rational</datatype>
+        <datatype>http://www.w3.org/2002/07/owl#real</datatype>
+      </datatypes>
+      <languages>
+        <language>de</language>
+        <language>en</language>
+        <language>es</language>
+        <language>fr</language>
+        <language>it</language>
+      </languages>
+      <facets>
+        <facet>http://www.w3.org/2001/XMLSchema#langRange</facet>
+        <facet>http://www.w3.org/2001/XMLSchema#length</facet>
+        <facet>http://www.w3.org/2001/XMLSchema#maxExclusive</facet>
+        <facet>http://www.w3.org/2001/XMLSchema#maxInclusive</facet>
+        <facet>http://www.w3.org/2001/XMLSchema#maxLength</facet>
+        <facet>http://www.w3.org/2001/XMLSchema#minExclusive</facet>
+        <facet>http://www.w3.org/2001/XMLSchema#minInclusive</facet>
+        <facet>http://www.w3.org/2001/XMLSchema#minLength</facet>
+        <facet>http://www.w3.org/2001/XMLSchema#pattern</facet>
+      </facets>
+      <annotationProperties>
+        <annotationProperty>http://purl.org/dc/elements/1.1/creator</annotationProperty>
+        <annotationProperty>http://purl.org/dc/elements/1.1/date</annotationProperty>
+        <annotationProperty>http://purl.org/dc/elements/1.1/description</annotationProperty>
+        <annotationProperty>http://purl.org/dc/elements/1.1/license</annotationProperty>
+        <annotationProperty>http://purl.org/dc/elements/1.1/title</annotationProperty>
+        <annotationProperty>http://www.w3.org/2000/01/rdf-schema#backwardCompatibleWith</annotationProperty>
+        <annotationProperty>http://www.w3.org/2000/01/rdf-schema#comment</annotationProperty>
+        <annotationProperty>http://www.w3.org/2000/01/rdf-schema#isDefinedBy</annotationProperty>
+        <annotationProperty>http://www.w3.org/2000/01/rdf-schema#label</annotationProperty>
+        <annotationProperty>http://www.w3.org/2001/XMLSchema#dateTimeStamp</annotationProperty>
+        <annotationProperty>http://www.w3.org/2002/07/owl#backwardCompatibleWith</annotationProperty>
+        <annotationProperty>http://www.w3.org/2002/07/owl#deprecated</annotationProperty>
+        <annotationProperty>http://www.w3.org/2002/07/owl#fetchedFrom</annotationProperty>
+        <annotationProperty>http://www.w3.org/2002/07/owl#incompatibleWith</annotationProperty>
+        <annotationProperty>http://www.w3.org/2002/07/owl#priorVersion</annotationProperty>
+        <annotationProperty>http://www.w3.org/2002/07/owl#versionInfo</annotationProperty>
+        <annotationProperty>https://cdm.ovh/rsm/pop/pop#aboutProperty</annotationProperty>
+      </annotationProperties>
+      <iris>
+        <iri>
+          <value>http://purl.org/dc/elements/1.1/creator</value>
+        </iri>
+        <iri>
+          <value>http://purl.org/dc/elements/1.1/date</value>
+        </iri>
+        <iri>
+          <value>http://purl.org/dc/elements/1.1/description</value>
+        </iri>
+        <iri>
+          <value>http://purl.org/dc/elements/1.1/license</value>
+        </iri>
+        <iri>
+          <value>http://purl.org/dc/elements/1.1/title</value>
+        </iri>
+        <iri>
+          <value>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Process</value>
+        </iri>
+        <iri>
+          <value>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality</value>
+        </iri>
+        <iri>
+          <value>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Region</value>
+        </iri>
+        <iri>
+          <value>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#TimeInterval</value>
+        </iri>
+        <iri>
+          <value>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRegion</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRegion</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>has region</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2000/01/rdf-schema#Literal</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2000/01/rdf-schema#backwardCompatibleWith</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2000/01/rdf-schema#comment</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2000/01/rdf-schema#isDefinedBy</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2000/01/rdf-schema#label</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#NCName</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#NMTOKEN</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#Name</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#anyURI</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#base64Binary</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#boolean</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#byte</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#dateTime</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#dateTimeStamp</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#decimal</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#double</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#float</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#hexBinary</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#int</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#integer</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#langRange</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#language</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#length</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#long</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#maxExclusive</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#maxInclusive</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#maxLength</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#minExclusive</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#minInclusive</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#minLength</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#negativeInteger</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#nonNegativeInteger</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#nonPositiveInteger</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#normalizedString</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#pattern</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#positiveInteger</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#short</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#string</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#token</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#unsignedByte</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#unsignedInt</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#unsignedLong</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2001/XMLSchema#unsignedShort</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2002/07/owl#Nothing</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2002/07/owl#Thing</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2002/07/owl#backwardCompatibleWith</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2002/07/owl#bottomDataProperty</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2002/07/owl#bottomObjectProperty</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2002/07/owl#deprecated</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2002/07/owl#fetchedFrom</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2002/07/owl#incompatibleWith</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2002/07/owl#priorVersion</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2002/07/owl#rational</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2002/07/owl#real</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2002/07/owl#topDataProperty</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2002/07/owl#topObjectProperty</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2002/07/owl#versionInfo</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/2004/02/skos/core#Concept</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/ns/prov#Activity</value>
+        </iri>
+        <iri>
+          <value>http://www.w3.org/ns/sosa/Observation</value>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop</value>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop#AssertedQuality</value>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop#AssertedQuality</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Asserted quality</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop#AssertedQuality</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>The externally defined property (NOT: PROPERTY VALUE) that AssertedQuality refers to shall be indicated using pop:aboutProperty, which is an owl:AnnotationProperty. pop:aboutProperty can target any rdf resource, such a class, an object property, a data property, as long as that resource unambiguously defines what property is meant (from a domain point of view).</lexicalForm>
+                <datatype/>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop#AssertedTimeInterval</value>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop#AssertedTimeInterval</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>a sosa:resultTime is equivalent to a degenerated pop:AssertedInterval. In general, if the observation period is an interval, it will result in an AssertedInterval ending at the resultTime.</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop#AssertedTimeInterval</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Asserted time interval</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop#AssertedValue</value>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop#AssertedValue</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Asserted value</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language/>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop#AssertedValue</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>The value (quality or quantity) and its uncertainty or tolerance, in most generic form.</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop#aboutProperty</value>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop#boundariesNode</value>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop#hasAssertedValue</value>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop#hasSource</value>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop#intervalEnd</value>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop#intervalStart</value>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop#sourceKind</value>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop#validDuring</value>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop#value</value>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop#valueNode</value>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop</value>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>All imports were eliminated after overall consistency between DUL, SOSA/SSN, and POP was ascertained.</lexicalForm>
+                <datatype/>
+                <language>en</language>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop</subject>
+              <property>http://purl.org/dc/elements/1.1/title</property>
+              <object>
+                <lexicalForm>Prescription, Observation, Prediction ontology</lexicalForm>
+                <datatype/>
+                <language>en</language>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop</subject>
+              <property>http://purl.org/dc/elements/1.1/description</property>
+              <object>
+                <lexicalForm>Ontology for Prescriptions (subclass of dul:Description), Observations, Predictions. Built on DUL, PROV-O, and SOSA/SSN. Also considers Specifications and Corrections (as subclasses of Prescriptions).
+
+POPs and Current State of some Digital Twin (out of scope here) are formally similar, but epistemically quite different: POPs are facts, hence immutable. Facts can be erroneous or incomplete or obsolete, but remain as they were delivered or computed until they get discarded.</lexicalForm>
+                <datatype/>
+                <language>en</language>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop</subject>
+              <property>http://purl.org/dc/elements/1.1/license</property>
+              <object>
+                <iri>https://creativecommons.org/licenses/by-sa/4.0/</iri>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop</subject>
+              <property>http://www.w3.org/2002/07/owl#versionInfo</property>
+              <object>
+                <lexicalForm>0.2: time dimension removed (expected to be handled with dul:Situation or similar). IRI refactoring and conceptual cleanup.</lexicalForm>
+                <datatype/>
+                <language>en</language>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop</subject>
+              <property>http://purl.org/dc/elements/1.1/creator</property>
+              <object>
+                <lexicalForm>Airy Magnien</lexicalForm>
+                <datatype/>
+                <language/>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop</subject>
+              <property>http://purl.org/dc/elements/1.1/date</property>
+              <object>
+                <lexicalForm>16 June 2026</lexicalForm>
+                <datatype/>
+                <language/>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#AssertionGeneratingActivity</value>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#AssertionGeneratingActivity</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Assertion-generating activity</lexicalForm>
+                <datatype>http://www.w3.org/2001/XMLSchema#string</datatype>
+                <language/>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#AssertionGeneratingActivity</value>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#Correction</value>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#Correction</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>An activity or process that yields corrective values (with no enforcement guarantees: enforcement shall be observed, not believed in)</lexicalForm>
+                <datatype/>
+                <language>en</language>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#Correction</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>An activity or process that yields corrective values, but does not guarantee their enforcement (enforcement shall be observed rather than believed in).</lexicalForm>
+                <datatype/>
+                <language>en</language>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#Correction</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>www</lexicalForm>
+                <datatype/>
+                <language/>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#Correction</value>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#Correction</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Correction</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#Estimation</value>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#Estimation</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>another source kind that may involve data gap-filling, intra- or extrapolation, filtering, reconciliation, and assorted decision points. Usually resting on multiple sources.</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#Estimation</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Estimation</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language/>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#Estimation</value>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#ExtensiveQuality</value>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#ExtensiveQuality</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Extensive quality</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#IntensiveQuality</value>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#IntensiveQuality</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Intensive quality</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#Interpolation</value>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#Interpolation</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Interpolation</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#Observation</value>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#Observation</value>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#Observation</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Observation</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#Prediction</value>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#Prediction</value>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#Prediction</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Prediction</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#Prediction</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>The activity or process that produces predicted asserted qualities (not the predicted value itself)</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language/>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#Prescription</value>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#Prescription</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Prescription</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#Specification</value>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#Specification</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Specification</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#aboutProperty</value>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#aboutProperty</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>about property</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#aggregationRule</value>
+          <functional/>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#aggregationRule</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>aggregation rule</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#boundariesNode</value>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#boundariesNode</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>boundaries node</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#boundariesNode</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>Can be expressed as an interval (hence "boundaries"), or a distribution, a confidence interval, etc.</lexicalForm>
+                <datatype/>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#hasAssertedValue</value>
+          <functional/>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#hasAssertedValue</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>has asserted value</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#hasSimpleResult</value>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#hasSimpleResult</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>has simple result</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language/>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#hasSimpleResult</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>Generalization of sosa:hasSimpleResult</lexicalForm>
+                <datatype/>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#hasSource</value>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#hasSource</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>has source</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#resultTime</value>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#resultTime</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>result time</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#resultTime</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>generalisation of sosa:resultTime</lexicalForm>
+                <datatype/>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#valueNode</value>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#valueNode</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>value node</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#valueNode</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>valueNode points to any resource (possibly an IRI, a string, a blank node...) holding the value of a property. It may be the original value provided by an RDF data source. Data type (if applicable) and data constraints are entirely the responsibility of the source.</lexicalForm>
+                <datatype/>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://creativecommons.org/licenses/by-sa/4.0/</value>
+        </iri>
+        <iri>
+          <value>urn:x-graphol:origin</value>
+        </iri>
+      </iris>
+    </ontology>
+    <diagrams>
+      <diagram width="5000" height="5000" name="01 - Assertion generation">
+        <node color="#fcfcfc" type="concept" id="n14">
+          <geometry height="50" width="165" y="20" x="280"/>
+          <iri>https://cdm.ovh/rsm/pop/pop#AssertionGeneratingActivity</iri>
+          <label height="23" width="165" y="12" x="280" customSize="0" size="12"/>
+        </node>
+        <node color="#fcfcfc" type="concept" id="n16">
+          <geometry height="50" width="110" y="140" x="130"/>
+          <iri>https://cdm.ovh/rsm/pop/pop#Observation</iri>
+          <label height="23" width="110" y="140" x="130" customSize="0" size="12"/>
+        </node>
+        <node color="#fcfcfc" type="concept" id="n18">
+          <geometry height="50" width="110" y="240" x="280"/>
+          <iri>https://cdm.ovh/rsm/pop/pop#Interpolation</iri>
+          <label height="23" width="110" y="240" x="280" customSize="0" size="12"/>
+        </node>
+        <node color="#fcfcfc" type="concept" id="n2">
+          <geometry height="50" width="110" y="140" x="580"/>
+          <iri>https://cdm.ovh/rsm/pop/pop#Correction</iri>
+          <label height="23" width="110" y="140" x="580" customSize="0" size="12"/>
+        </node>
+        <node color="#fcfcfc" type="concept" id="n3">
+          <geometry height="50" width="110" y="140" x="430"/>
+          <iri>https://cdm.ovh/rsm/pop/pop#Prediction</iri>
+          <label height="23" width="110" y="140" x="430" customSize="0" size="12"/>
+        </node>
+        <node color="#fcfcfc" type="concept" id="n4">
+          <geometry height="50" width="110" y="140" x="280"/>
+          <iri>https://cdm.ovh/rsm/pop/pop#Estimation</iri>
+          <label height="23" width="110" y="140" x="280" customSize="0" size="12"/>
+        </node>
+        <node color="#fcfcfc" type="concept" id="n5">
+          <geometry height="50" width="110" y="140" x="-20"/>
+          <iri>https://cdm.ovh/rsm/pop/pop#Prescription</iri>
+          <label height="23" width="110" y="140" x="-20" customSize="0" size="12"/>
+        </node>
+        <node color="#fcfcfc" type="concept" id="n6">
+          <geometry height="50" width="110" y="240" x="-20"/>
+          <iri>https://cdm.ovh/rsm/pop/pop#Specification</iri>
+          <label height="23" width="110" y="240" x="-20" customSize="0" size="12"/>
+        </node>
+        <edge source="n16" target="n14" type="inclusion" id="e13">
+          <point y="140" x="130"/>
+          <point y="20" x="280"/>
+        </edge>
+        <edge source="n2" target="n14" type="inclusion" id="e14">
+          <point y="140" x="580"/>
+          <point y="20" x="280"/>
+        </edge>
+        <edge source="n3" target="n14" type="inclusion" id="e15">
+          <point y="140" x="430"/>
+          <point y="20" x="280"/>
+        </edge>
+        <edge source="n5" target="n14" type="inclusion" id="e16">
+          <point y="140" x="-20"/>
+          <point y="20" x="280"/>
+        </edge>
+        <edge source="n4" target="n14" type="inclusion" id="e18">
+          <point y="140" x="280"/>
+          <point y="20" x="280"/>
+        </edge>
+        <edge source="n18" target="n4" type="inclusion" id="e20">
+          <point y="240" x="280"/>
+          <point y="140" x="280"/>
+        </edge>
+        <edge source="n6" target="n5" type="inclusion" id="e5">
+          <point y="240" x="-20"/>
+          <point y="140" x="-20"/>
+        </edge>
+      </diagram>
+      <diagram width="5000" height="5000" name="02 - Valuation">
+        <node color="#fcfcfc" type="concept" id="n1">
+          <geometry height="50" width="110" y="130" x="50"/>
+          <iri>https://cdm.ovh/rsm/pop#AssertedQuality</iri>
+          <label height="23" width="110" y="130" x="50" customSize="0" size="12"/>
+        </node>
+        <node color="#fcfcfc" type="role" id="n16">
+          <geometry height="50" width="70" y="80" x="610"/>
+          <iri>https://cdm.ovh/rsm/pop/pop#boundariesNode</iri>
+          <label height="23" width="96" y="50" x="610" customSize="0" size="12"/>
+        </node>
+        <node color="#fcfcfc" type="domain-restriction" id="n17">
+          <geometry height="20" width="20" y="80" x="530"/>
+          <label height="23" width="39" y="58" x="530" customSize="0" size="12">exists</label>
+        </node>
+        <node color="#fcfcfc" type="role" id="n19">
+          <geometry height="50" width="70" y="130" x="247"/>
+          <iri>https://cdm.ovh/rsm/pop/pop#hasSource</iri>
+          <label height="23" width="64" y="100" x="247" customSize="0" size="12"/>
+        </node>
+        <node color="#fcfcfc" type="domain-restriction" id="n20">
+          <geometry height="20" width="20" y="130" x="157"/>
+          <label height="23" width="39" y="108" x="157" customSize="0" size="12">exists</label>
+        </node>
+        <node color="#000000" type="range-restriction" id="n21">
+          <geometry height="20" width="20" y="130" x="327"/>
+          <label height="23" width="39" y="108" x="327" customSize="0" size="12">exists</label>
+        </node>
+        <node color="#fcfcfc" type="concept" id="n22">
+          <geometry height="50" width="175" y="130" x="470"/>
+          <iri>https://cdm.ovh/rsm/pop/pop#AssertionGeneratingActivity</iri>
+          <label height="23" width="175" y="122" x="470" customSize="0" size="12"/>
+        </node>
+        <node color="#fcfcfc" type="role" id="n26">
+          <geometry height="50" width="70" y="-10" x="610"/>
+          <iri>https://cdm.ovh/rsm/pop/pop#valueNode</iri>
+          <label height="23" width="64" y="-40" x="610" customSize="0" size="12"/>
+        </node>
+        <node color="#fcfcfc" type="domain-restriction" id="n27">
+          <geometry height="20" width="20" y="-10" x="530"/>
+          <label height="23" width="39" y="-32" x="530" customSize="0" size="12">exists</label>
+        </node>
+        <node color="#fcfcfc" type="attribute" id="n28">
+          <geometry height="20" width="20" y="210" x="247"/>
+          <iri>https://cdm.ovh/rsm/pop/pop#hasSimpleResult</iri>
+          <label height="23" width="97" y="188" x="247" customSize="0" size="12"/>
+        </node>
+        <node color="#fcfcfc" type="domain-restriction" id="n29">
+          <geometry height="20" width="20" y="210" x="157"/>
+          <label height="23" width="39" y="188" x="157" customSize="0" size="12">exists</label>
+        </node>
+        <node color="#fcfcfc" type="concept" id="n3">
+          <geometry height="50" width="110" y="40" x="430"/>
+          <iri>https://cdm.ovh/rsm/pop#AssertedValue</iri>
+          <label height="23" width="110" y="40" x="430" customSize="0" size="12"/>
+        </node>
+        <node color="#fcfcfc" type="attribute" id="n40">
+          <geometry height="20" width="20" y="270" x="247"/>
+          <iri>https://cdm.ovh/rsm/pop/pop#resultTime</iri>
+          <label height="23" width="64" y="248" x="247" customSize="0" size="12"/>
+        </node>
+        <node color="#fcfcfc" type="domain-restriction" id="n41">
+          <geometry height="20" width="20" y="270" x="157"/>
+          <label height="23" width="39" y="248" x="157" customSize="0" size="12">exists</label>
+        </node>
+        <node color="#fcfcfc" type="value-domain" id="n42">
+          <geometry height="40" width="90" y="270" x="427"/>
+          <iri>http://www.w3.org/2001/XMLSchema#dateTime</iri>
+          <label height="23" width="90" y="270" x="427" customSize="0" size="12"/>
+        </node>
+        <node color="#000000" type="range-restriction" id="n43">
+          <geometry height="20" width="20" y="270" x="327"/>
+          <label height="23" width="39" y="248" x="327" customSize="0" size="12">exists</label>
+        </node>
+        <node color="#fcfcfc" type="role" id="n6">
+          <geometry height="50" width="70" y="40" x="240"/>
+          <iri>https://cdm.ovh/rsm/pop/pop#hasAssertedValue</iri>
+          <label height="23" width="104" y="10" x="240" customSize="0" size="12"/>
+        </node>
+        <node color="#fcfcfc" type="domain-restriction" id="n7">
+          <geometry height="20" width="20" y="40" x="150"/>
+          <label height="23" width="39" y="18" x="150" customSize="0" size="12">exists</label>
+        </node>
+        <node color="#000000" type="range-restriction" id="n8">
+          <geometry height="20" width="20" y="40" x="330"/>
+          <label height="23" width="39" y="18" x="330" customSize="0" size="12">exists</label>
+        </node>
+        <node color="#c2b078" type="role" id="n9">
+          <geometry height="50" width="70" y="-60" x="240"/>
+          <iri>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRegion</iri>
+          <label height="23" width="64" y="-90" x="240" customSize="0" size="12"/>
+        </node>
+        <edge source="n16" target="n17" type="input" id="e15">
+          <point y="80" x="610"/>
+          <point y="80" x="530"/>
+        </edge>
+        <edge source="n20" target="n1" type="inclusion" id="e16">
+          <point y="130" x="157"/>
+          <point y="130" x="50"/>
+        </edge>
+        <edge source="n19" target="n20" type="input" id="e17">
+          <point y="130" x="247"/>
+          <point y="130" x="157"/>
+        </edge>
+        <edge source="n19" target="n21" type="input" id="e18">
+          <point y="130" x="247"/>
+          <point y="130" x="327"/>
+        </edge>
+        <edge source="n21" target="n22" type="inclusion" id="e19">
+          <point y="130" x="327"/>
+          <point y="130" x="470"/>
+        </edge>
+        <edge source="n27" target="n3" type="inclusion" id="e24">
+          <point y="-10" x="530"/>
+          <point y="40" x="430"/>
+        </edge>
+        <edge source="n26" target="n27" type="input" id="e25">
+          <point y="-10" x="610"/>
+          <point y="-10" x="530"/>
+        </edge>
+        <edge source="n17" target="n3" type="inclusion" id="e26">
+          <point y="80" x="530"/>
+          <point y="40" x="430"/>
+        </edge>
+        <edge source="n28" target="n29" type="input" id="e28">
+          <point y="210" x="247"/>
+          <point y="210" x="157"/>
+        </edge>
+        <edge source="n8" target="n3" type="inclusion" id="e3">
+          <point y="40" x="330"/>
+          <point y="40" x="430"/>
+        </edge>
+        <edge source="n29" target="n1" type="inclusion" id="e31">
+          <point y="210" x="157"/>
+          <point y="130" x="50"/>
+        </edge>
+        <edge source="n7" target="n1" type="inclusion" id="e4">
+          <point y="40" x="150"/>
+          <point y="130" x="50"/>
+        </edge>
+        <edge source="n41" target="n1" type="inclusion" id="e42">
+          <point y="270" x="157"/>
+          <point y="130" x="50"/>
+        </edge>
+        <edge source="n40" target="n41" type="input" id="e43">
+          <point y="270" x="247"/>
+          <point y="270" x="157"/>
+        </edge>
+        <edge source="n40" target="n43" type="input" id="e44">
+          <point y="270" x="247"/>
+          <point y="270" x="327"/>
+        </edge>
+        <edge source="n43" target="n42" type="inclusion" id="e45">
+          <point y="270" x="327"/>
+          <point y="270" x="427"/>
+        </edge>
+        <edge source="n6" target="n7" type="input" id="e5">
+          <point y="40" x="240"/>
+          <point y="40" x="150"/>
+        </edge>
+        <edge source="n6" target="n8" type="input" id="e6">
+          <point y="40" x="240"/>
+          <point y="40" x="330"/>
+        </edge>
+        <edge source="n6" target="n9" type="inclusion" id="e7">
+          <point y="40" x="240"/>
+          <point y="-60" x="240"/>
+        </edge>
+      </diagram>
+      <diagram width="5000" height="5000" name="03 - Qualities">
+        <node color="#fcfcfc" type="concept" id="n0">
+          <geometry height="50" width="110" y="-40" x="80"/>
+          <iri>https://cdm.ovh/rsm/pop#AssertedQuality</iri>
+          <label height="23" width="110" y="-40" x="80" customSize="0" size="12"/>
+        </node>
+        <node color="#fcfcfc" type="concept" id="n1">
+          <geometry height="50" width="110" y="90" x="0"/>
+          <iri>https://cdm.ovh/rsm/pop/pop#ExtensiveQuality</iri>
+          <label height="23" width="110" y="90" x="0" customSize="0" size="12"/>
+        </node>
+        <node color="#000000" type="disjoint-union" id="n2">
+          <geometry height="30" width="50" y="20" x="80"/>
+        </node>
+        <node color="#fcfcfc" type="concept" id="n3">
+          <geometry height="50" width="110" y="90" x="160"/>
+          <iri>https://cdm.ovh/rsm/pop/pop#IntensiveQuality</iri>
+          <label height="23" width="110" y="90" x="160" customSize="0" size="12"/>
+        </node>
+        <node color="#fcfcfc" type="role" id="n4">
+          <geometry height="50" width="70" y="90" x="340"/>
+          <iri>https://cdm.ovh/rsm/pop/pop#aggregationRule</iri>
+          <label height="23" width="94" y="60" x="340" customSize="0" size="12"/>
+        </node>
+        <node color="#646b63" type="concept" id="n5">
+          <geometry height="50" width="110" y="90" x="530"/>
+          <iri>http://www.w3.org/2004/02/skos/core#Concept</iri>
+          <label height="23" width="110" y="90" x="530" customSize="0" size="12"/>
+        </node>
+        <node color="#fcfcfc" type="domain-restriction" id="n6">
+          <geometry height="20" width="20" y="90" x="260"/>
+          <label height="23" width="39" y="68" x="260" customSize="0" size="12">exists</label>
+        </node>
+        <node color="#000000" type="range-restriction" id="n7">
+          <geometry height="20" width="20" y="90" x="420"/>
+          <label height="23" width="39" y="68" x="420" customSize="0" size="12">exists</label>
+        </node>
+        <node color="#c2b078" type="concept" id="n8">
+          <geometry height="50" width="110" y="-120" x="80"/>
+          <iri>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality</iri>
+          <label height="23" width="110" y="-120" x="80" customSize="0" size="12"/>
+        </node>
+        <edge source="n2" target="n0" type="inclusion" id="e1">
+          <point y="20" x="80"/>
+          <point y="-40" x="80"/>
+        </edge>
+        <edge source="n1" target="n2" type="input" id="e2">
+          <point y="90" x="0"/>
+          <point y="20" x="80"/>
+        </edge>
+        <edge source="n3" target="n2" type="input" id="e3">
+          <point y="90" x="160"/>
+          <point y="20" x="80"/>
+        </edge>
+        <edge source="n4" target="n6" type="input" id="e4">
+          <point y="90" x="340"/>
+          <point y="90" x="260"/>
+        </edge>
+        <edge source="n4" target="n7" type="input" id="e5">
+          <point y="90" x="340"/>
+          <point y="90" x="420"/>
+        </edge>
+        <edge source="n7" target="n5" type="inclusion" id="e6">
+          <point y="90" x="420"/>
+          <point y="90" x="530"/>
+        </edge>
+        <edge source="n6" target="n3" type="inclusion" id="e7">
+          <point y="90" x="260"/>
+          <point y="90" x="160"/>
+        </edge>
+        <edge source="n0" target="n8" type="inclusion" id="e8">
+          <point y="-40" x="80"/>
+          <point y="-120" x="80"/>
+        </edge>
+      </diagram>
+      <diagram width="5000" height="5000" name="04 - Upper and related">
+        <node color="#fcfcfc" type="concept" id="n10">
+          <geometry height="50" width="110" y="430" x="210"/>
+          <iri>https://cdm.ovh/rsm/pop#AssertedValue</iri>
+          <label height="23" width="110" y="430" x="210" customSize="0" size="12"/>
+        </node>
+        <node color="#c2b078" type="concept" id="n11">
+          <geometry height="50" width="110" y="290" x="390"/>
+          <iri>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#TimeInterval</iri>
+          <label height="23" width="110" y="290" x="390" customSize="0" size="12"/>
+        </node>
+        <node color="#fcfcfc" type="concept" id="n12">
+          <geometry height="50" width="110" y="430" x="390"/>
+          <iri>https://cdm.ovh/rsm/pop#AssertedTimeInterval</iri>
+          <label height="38" width="110" y="430" x="390" customSize="0" size="12"/>
+        </node>
+        <node color="#fcfcfc" type="concept" id="n13">
+          <geometry height="50" width="110" y="430" x="40"/>
+          <iri>https://cdm.ovh/rsm/pop#AssertedQuality</iri>
+          <label height="23" width="110" y="430" x="40" customSize="0" size="12"/>
+        </node>
+        <node color="#c2b078" type="concept" id="n14">
+          <geometry height="50" width="110" y="290" x="40"/>
+          <iri>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality</iri>
+          <label height="23" width="110" y="290" x="40" customSize="0" size="12"/>
+        </node>
+        <node color="#fcfcfc" type="role" id="n15">
+          <geometry height="50" width="70" y="430" x="560"/>
+          <iri>https://cdm.ovh/rsm/pop/pop#hasAssertedValue</iri>
+          <label height="23" width="104" y="400" x="560" customSize="0" size="12"/>
+        </node>
+        <node color="#c2b078" type="role" id="n16">
+          <geometry height="50" width="70" y="290" x="560"/>
+          <iri>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRegion</iri>
+          <label height="23" width="64" y="260" x="560" customSize="0" size="12"/>
+        </node>
+        <node color="#c2b078" type="concept" id="n17">
+          <geometry height="50" width="110" y="-40" x="470"/>
+          <iri>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Process</iri>
+          <label height="23" width="110" y="-40" x="470" customSize="0" size="12"/>
+        </node>
+        <node color="#fcfcfc" type="concept" id="n18">
+          <geometry height="50" width="165" y="120" x="380"/>
+          <iri>https://cdm.ovh/rsm/pop/pop#AssertionGeneratingActivity</iri>
+          <label height="23" width="165" y="112" x="380" customSize="0" size="12"/>
+        </node>
+        <node color="#fcfcfc" type="concept" id="n3">
+          <geometry height="50" width="110" y="120" x="150"/>
+          <iri>https://cdm.ovh/rsm/pop/pop#Observation</iri>
+          <label height="23" width="110" y="120" x="150" customSize="0" size="12"/>
+        </node>
+        <node color="#f0e50c" type="concept" id="n5">
+          <geometry height="50" width="110" y="-40" x="150"/>
+          <iri>http://www.w3.org/ns/sosa/Observation</iri>
+          <label height="23" width="110" y="-40" x="150" customSize="0" size="12"/>
+        </node>
+        <node color="#f29210" type="concept" id="n7">
+          <geometry height="50" width="110" y="-40" x="300"/>
+          <iri>http://www.w3.org/ns/prov#Activity</iri>
+          <label height="23" width="110" y="-40" x="300" customSize="0" size="12"/>
+        </node>
+        <node color="#c2b078" type="concept" id="n9">
+          <geometry height="50" width="110" y="290" x="210"/>
+          <iri>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Region</iri>
+          <label height="23" width="110" y="290" x="210" customSize="0" size="12"/>
+        </node>
+        <edge source="n3" target="n5" type="inclusion" id="e0">
+          <point y="120" x="150"/>
+          <point y="-40" x="150"/>
+        </edge>
+        <edge source="n10" target="n9" type="inclusion" id="e10">
+          <point y="430" x="210"/>
+          <point y="290" x="210"/>
+        </edge>
+        <edge source="n12" target="n11" type="inclusion" id="e11">
+          <point y="430" x="390"/>
+          <point y="290" x="390"/>
+        </edge>
+        <edge source="n13" target="n14" type="inclusion" id="e12">
+          <point y="430" x="40"/>
+          <point y="290" x="40"/>
+        </edge>
+        <edge source="n15" target="n16" type="inclusion" id="e13">
+          <point y="430" x="560"/>
+          <point y="290" x="560"/>
+        </edge>
+        <edge source="n18" target="n17" type="inclusion" id="e14">
+          <point y="120" x="380"/>
+          <point y="-40" x="470"/>
+        </edge>
+        <edge source="n18" target="n7" type="inclusion" id="e15">
+          <point y="120" x="380"/>
+          <point y="-40" x="300"/>
+        </edge>
+      </diagram>
+    </diagrams>
+  </project>
+</graphol>
