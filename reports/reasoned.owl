@@ -11,7 +11,8 @@
      xmlns:prov="http://www.w3.org/ns/prov#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
-     xmlns:sosa="http://www.w3.org/ns/sosa/">
+     xmlns:sosa="http://www.w3.org/ns/sosa/"
+     xmlns:dcterms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="https://cdm.ovh/rsm/pop/pop">
         <owl:versionIRI rdf:resource="https://cdm.ovh/rsm/pop/0.2/pop"/>
         <dc:creator>Airy Magnien</dc:creator>
@@ -19,8 +20,8 @@
         <dc:description xml:lang="en">Ontology for Prescriptions (subclass of dul:Description), Observations, Predictions. Built on DUL, PROV-O, and SOSA/SSN. Also considers Specifications and Corrections (as subclasses of Prescriptions).
 
 POPs and Current State of some Digital Twin (out of scope here) are formally similar, but epistemically quite different: POPs are facts, hence immutable. Facts can be erroneous or incomplete or obsolete, but remain as they were delivered or computed until they get discarded.</dc:description>
-        <dc:license rdf:resource="https://creativecommons.org/licenses/by-sa/4.0/"/>
         <dc:title xml:lang="en">Prescription, Observation, Prediction ontology</dc:title>
+        <dcterms:license rdf:resource="https://creativecommons.org/licenses/by-sa/4.0/"/>
         <rdfs:comment xml:lang="en">All imports were eliminated after overall consistency between DUL, SOSA/SSN, and POP was ascertained.</rdfs:comment>
         <owl:versionInfo xml:lang="en">0.2: time dimension removed (expected to be handled with dul:Situation or similar). IRI refactoring and conceptual cleanup.</owl:versionInfo>
     </owl:Ontology>
@@ -56,15 +57,15 @@ POPs and Current State of some Digital Twin (out of scope here) are formally sim
     
 
 
-    <!-- http://purl.org/dc/elements/1.1/license -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/license"/>
-    
-
-
     <!-- http://purl.org/dc/elements/1.1/title -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
     
 
 
