@@ -246,6 +246,7 @@ POPs and Current State of some Digital Twin (out of scope here) are formally sim
 
     <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept">
         <rdfs:comment xml:lang="en">possible concepts describing the effect of aggregation on the property value, in a concept scheme to be defined: maximum / minimum / product / logical AND / logical OR / list / undefined / weighted average / ...</rdfs:comment>
+        <rdfs:label xml:lang="en">concept</rdfs:label>
     </owl:Class>
     
 

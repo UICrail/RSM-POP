@@ -1,7 +1,7 @@
 # OWL Profile Validation Report
 
 **Ontology**: ontology/src/pop.ttl
-**Date**: 2026-06-17 09:36:14 UTC
+**Date**: 2026-06-17 09:44:47 UTC
 
 ---
 
