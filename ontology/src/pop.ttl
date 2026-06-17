@@ -10,6 +10,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @base <https://cdm.ovh/rsm/pop/pop> .
 
 <https://cdm.ovh/rsm/pop/pop> rdf:type owl:Ontology ;
@@ -19,8 +20,8 @@
                                dc:description """Ontology for Prescriptions (subclass of dul:Description), Observations, Predictions. Built on DUL, PROV-O, and SOSA/SSN. Also considers Specifications and Corrections (as subclasses of Prescriptions).
 
 POPs and Current State of some Digital Twin (out of scope here) are formally similar, but epistemically quite different: POPs are facts, hence immutable. Facts can be erroneous or incomplete or obsolete, but remain as they were delivered or computed until they get discarded."""@en ;
-                               dc:license <https://creativecommons.org/licenses/by-sa/4.0/> ;
                                dc:title "Prescription, Observation, Prediction ontology"@en ;
+                               dcterms:license <https://creativecommons.org/licenses/by-sa/4.0/> ;
                                rdfs:comment "All imports were eliminated after overall consistency between DUL, SOSA/SSN, and POP was ascertained."@en ;
                                owl:versionInfo "0.2: time dimension removed (expected to be handled with dul:Situation or similar). IRI refactoring and conceptual cleanup."@en .
 
@@ -40,12 +41,12 @@ dc:date rdf:type owl:AnnotationProperty .
 dc:description rdf:type owl:AnnotationProperty .
 
 
-###  http://purl.org/dc/elements/1.1/license
-dc:license rdf:type owl:AnnotationProperty .
-
-
 ###  http://purl.org/dc/elements/1.1/title
 dc:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+dcterms:license rdf:type owl:AnnotationProperty .
 
 
 ###  https://cdm.ovh/rsm/pop/pop#aboutProperty

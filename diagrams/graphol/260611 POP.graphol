@@ -9,6 +9,10 @@
           <namespace>http://purl.org/dc/elements/1.1/</namespace>
         </prefix>
         <prefix>
+          <value>dcterms</value>
+          <namespace>http://purl.org/dc/terms/</namespace>
+        </prefix>
+        <prefix>
           <value>dul</value>
           <namespace>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#</namespace>
         </prefix>
@@ -107,8 +111,8 @@
         <annotationProperty>http://purl.org/dc/elements/1.1/creator</annotationProperty>
         <annotationProperty>http://purl.org/dc/elements/1.1/date</annotationProperty>
         <annotationProperty>http://purl.org/dc/elements/1.1/description</annotationProperty>
-        <annotationProperty>http://purl.org/dc/elements/1.1/license</annotationProperty>
         <annotationProperty>http://purl.org/dc/elements/1.1/title</annotationProperty>
+        <annotationProperty>http://purl.org/dc/terms/license</annotationProperty>
         <annotationProperty>http://www.w3.org/2000/01/rdf-schema#backwardCompatibleWith</annotationProperty>
         <annotationProperty>http://www.w3.org/2000/01/rdf-schema#comment</annotationProperty>
         <annotationProperty>http://www.w3.org/2000/01/rdf-schema#isDefinedBy</annotationProperty>
@@ -137,6 +141,9 @@
         </iri>
         <iri>
           <value>http://purl.org/dc/elements/1.1/title</value>
+        </iri>
+        <iri>
+          <value>http://purl.org/dc/terms/license</value>
         </iri>
         <iri>
           <value>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity</value>
@@ -437,13 +444,6 @@ POPs and Current State of some Digital Twin (out of scope here) are formally sim
             </annotation>
             <annotation>
               <subject>https://cdm.ovh/rsm/pop/pop</subject>
-              <property>http://purl.org/dc/elements/1.1/license</property>
-              <object>
-                <iri>https://creativecommons.org/licenses/by-sa/4.0/</iri>
-              </object>
-            </annotation>
-            <annotation>
-              <subject>https://cdm.ovh/rsm/pop/pop</subject>
               <property>http://www.w3.org/2002/07/owl#versionInfo</property>
               <object>
                 <lexicalForm>0.2: time dimension removed (expected to be handled with dul:Situation or similar). IRI refactoring and conceptual cleanup.</lexicalForm>
@@ -467,6 +467,13 @@ POPs and Current State of some Digital Twin (out of scope here) are formally sim
                 <lexicalForm>17 June 2026</lexicalForm>
                 <datatype/>
                 <language/>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop</subject>
+              <property>http://purl.org/dc/terms/license</property>
+              <object>
+                <iri>https://creativecommons.org/licenses/by-sa/4.0/</iri>
               </object>
             </annotation>
           </annotations>
@@ -862,6 +869,9 @@ POPs and Current State of some Digital Twin (out of scope here) are formally sim
               </object>
             </annotation>
           </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#https://creativecommons.org/licenses/by-sa/4.0/</value>
         </iri>
         <iri>
           <value>https://cdm.ovh/rsm/pop/pop#resultTime</value>
