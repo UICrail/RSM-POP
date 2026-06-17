@@ -2,7 +2,7 @@
 
 The POP ontology aims at describing property values from different perspectives, namely:
 * Prescriptions, such as specifications, mandatory standards, etc.
-* Observations; here, SOSA/SSN rules;
+* Observations; here, POP generalizes (and somewhat simplifies) SOSA/SSN while staying very close;
 * Predictions,
 * Corrections (new or updated prescriptions), as may result from maintenance processes,
 
@@ -27,7 +27,7 @@ For a large railway ecosystem with many imported ontologies, that reduction in c
 
 "Asserted quality" is an information carrier concerning a quality of some entity; it shall not be understood as the (actual? true?) quality of that entity. Accordingly, we define pop:AssertedQuality as a subclass of dul:InformationObject, not of dul:Quality.
 
-This is where RSM does not pose as a model for instantiating some "unique source of truth": truth (true value) often requires further processing to be ascertained, and may be context-dependent. On the contrary, RSM is about handling information from various sources: an epistemic model.
+This is where POP does not pose as a model for instantiating some "unique source of truth": truth (true value) often requires further processing to be ascertained, and may be context-dependent. On the contrary, POP is about handling information from various sources: an epistemic model.
 
 ## Referencing properties defined elsewhere
 
@@ -41,11 +41,15 @@ External properties of those entities are referenced using an owl:AnnotationProp
 
 > Note: SOSA/SSN would instead require duplicating as a class any domain property originally expressed as an owl property. For instance, ex:signalAspect would require a sibling ex:signalAspectAssertion class to be defined, and the link between object property and class can only reside in an annotation property which OWL reasoners would ignore. From that point of view, POP is no regression compared to SOSA/SSN.
 
+## Recursiveness
+
+Asserted qualities are information objects that can themselves become observed entities in order to evaluate their qualities. For instance, raw data can be processed into indicators, and indicators can in turn be observed to derive trends. Such recursive data processing frequently happens in engineering or business, and is supported by POP.
+
 ## Welcoming all sources
 
 The overarching concept is that of "assertion-generating activity" (a class), differentiating prescription (in particular specification), observation, estimation, prediction, correction. These activities are processes that produce assertions, although prescriptions and specifications are often confused with the documents yielded by the process.
 
-## Property aggregation, or properties of aggregation
+## Property aggregation, or properties of aggregations
 
 In physics and especially thermodynamics, one common distinction is whether properties are "intensive" (like temperature or pressure) or "extensive" (like mass, volume, or energy). Classical thermodynamics describes extensive quantities as scaling with the size of the system and being additive over independent subsystems, whereas intensive quantities do not scale in that way. See for instance Guggenheim (referenced below), pp. 18-19.
 
