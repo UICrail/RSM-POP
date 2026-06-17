@@ -1,0 +1,17 @@
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix pop:  <https://cdm.ovh/rsm/pop/pop#> .
+
+#
+# Patch ontology: declarations that Eddy/Graphol cannot emit.
+#
+# Graphol has no diagram node for annotation properties (they carry no
+# description-logic semantics), so Eddy can use pop:aboutProperty as an
+# annotation predicate but cannot assert it as an owl:AnnotationProperty.
+# This file supplies that declaration; it is merged into pop.ttl with ROBOT
+# after each export from Eddy (see README, "Build and post-processing").
+#
+
+pop:aboutProperty a owl:AnnotationProperty ;
+    rdfs:label "about property"@en ;
+    rdfs:comment "References the external property (rdf:Property, owl:ObjectProperty, owl:DatatypeProperty, reified property, ...) that an AssertedQuality is about. Ignored by OWL reasoners; provides semantic context only."@en .

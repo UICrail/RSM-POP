@@ -1,6 +1,6 @@
 # Purpose
 
-The POP ontology aims at describing data from different perspectives, namely:
+The POP ontology aims at describing property values from different perspectives, namely:
 * Prescriptions, such as specifications, mandatory standards, etc.
 * Observations; here, SOSA/SSN rules;
 * Predictions,
@@ -25,13 +25,19 @@ This is a substantial change because __it allows POP to sit on top of arbitrary 
 
 For a large railway ecosystem with many imported ontologies, that reduction in coupling is likely more important than the extra OWL inferencing opportunities offered by ssn:Property.
 
+"Asserted quality" is an information carrier concerning a quality of some entity; it shall not be understood as the (actual? true?) quality of that entity. Accordingly, we define pop:AssertedQuality as a subclass of dul:InformationObject, not of dul:Quality.
+
+This is where RSM does not pose as a model for instantiating some "unique source of truth": truth (true value) often requires further processing to be ascertained, and may be context-dependent. On the contrary, RSM is about handling information from various sources: an epistemic model.
+
 ## Referencing properties defined elsewhere
 
-POP references properties (or other ontology terms, such as reified properties) defined elsewhere that we shall call "external properties". Formally, these properties can be any rdf:Property, owl:ObjectProperty, owl:DatatypeProperty, etc. POP defines pop:aboutProperty to link to external properties, but the linked property does not play any role in OWL inferencing. It is merely a semantic reference.
+POP references properties (or other ontology terms, such as reified properties) defined elsewhere that we shall call "external properties". Formally, these properties can be any rdf:Property, owl:ObjectProperty, owl:DatatypeProperty, etc.
 
-External properties are referenced using an owl:AnnotationProperty defined in POP, namely `pop:aboutProperty`. The values (objects) of annotation properties are ignored by OWL reasoners (not however by SHACL shapes). `pop:aboutProperty` only provides unambiguous semantic context to the user. Consequently,
-* data checking should take place upstream, using the external SHACL shapes coming with the external ontologies;
-* conversion of external data to their POP-conforming presentation is an automated downstream process that should undergo usual software verification and validation steps, not data validation.
+The entities to which the asserted qualities apply are designated by the property pop:aboutEntity.
+
+External properties of those entities are referenced using an owl:AnnotationProperty defined in POP, namely `pop:aboutProperty`. The values (objects) of annotation properties are ignored by OWL reasoners (not however by SHACL shapes). `pop:aboutProperty` only provides unambiguous semantic context to the user. Consequently,
+* data checking should take place upstream, e.g. using the external SHACL shapes coming with the external ontologies;
+* conversion of external data to their POP-conforming representation is an automated downstream process that should undergo usual software verification and validation steps, instead of data validation.
 
 > Note: SOSA/SSN would instead require duplicating as a class any domain property originally expressed as an owl property. For instance, ex:signalAspect would require a sibling ex:signalAspectAssertion class to be defined, and the link between object property and class can only reside in an annotation property which OWL reasoners would ignore. From that point of view, POP is no regression compared to SOSA/SSN.
 
@@ -55,7 +61,7 @@ $$
 P(A \cup B) = P(A) + P(B) - P(A \cap B)
 $$
 
-For instance, the mass of two wagons is the sum of the masses of each wagon, which characterizes "mass" as an extensive property. The same would apply to wagons lengths in the context of a train formation (not outside that context though).
+For instance, the mass of two wagons is the sum of the masses of each wagon, which characterizes "mass" as an extensive property. The same would apply to wagon lengths in the context of a train formation (not outside that context though).
 
 By contrast, intensive properties do not add up; at best, they can be compared using an order relation. Evaluating $P(A \cup B)$ does not necessarily make sense, and even when it does, the evaluation method may depend on context. For instance:
 * If $P$ is "temperature" and bodies $A$ and $B$ have the same temperature $T$, then $P(A \cup B) = T$; if they have different temperatures $T_1$ and $T_2$, and if $A$ and $B$ can exchange heat with each other while remaining isolated from their environment, the temperature of $A \cup B$ will ultimately settle to an intermediate value, namely the average of $T_1$ and $T_2$ weighted by their respective thermal capacities;
@@ -72,5 +78,27 @@ Some useful background references for this modelling choice are:
 * E. A. Guggenheim, _Thermodynamics_, 5th ed., North-Holland, 1967, for another standard presentation of extensive and intensive quantities;
 * P. R. Halmos, _Measure Theory_, Van Nostrand, 1950, for additive set functions and measure-like aggregation;
 * P. Suppes, _Measurement theory and engineering_, in Handbook of the philosophy of science, vol. 9: philosophy of technology and engineering sciences, Elsevier, 2009
+
+# Build and post-processing
+
+The ontology is authored as a Graphol diagram in [Eddy](https://github.com/obdasystems/eddy) and exported to `ontology/src/pop.ttl`.
+
+Graphol has no diagram node for annotation properties, because they carry no description-logic semantics. Eddy therefore lets `pop:aboutProperty` be *used* as an annotation predicate, but cannot assert `pop:aboutProperty rdf:type owl:AnnotationProperty`. That declaration is supplied separately in `ontology/src/pop-annotations.ttl` and merged into the exported ontology with [ROBOT](https://robot.obolibrary.org/).
+
+After every export of `pop.ttl` from Eddy, run:
+
+```bash
+./scripts/merge-annotations.sh
+```
+
+then commit the result. The script is a thin wrapper around:
+
+```bash
+robot merge --input ontology/src/pop.ttl --input ontology/src/pop-annotations.ttl --output ontology/src/pop.ttl
+```
+
+The merge is idempotent, so re-running it on an already-merged file leaves it unchanged. Add further declarations that Eddy cannot express (other annotation properties, etc.) to `pop-annotations.ttl` as needed.
+
+> Note: the command name `robot` collides with [Robot Framework](https://robotframework.org/) (a Python test tool). If your `robot` is Robot Framework, install the OBO ROBOT tool and point the script at it via the `ROBOT` environment variable, e.g. `ROBOT="java -jar /path/to/robot.jar" ./scripts/merge-annotations.sh`. The script detects the wrong tool and fails with guidance rather than producing a bad ontology.
 
 

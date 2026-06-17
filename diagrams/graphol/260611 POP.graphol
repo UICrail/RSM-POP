@@ -139,30 +139,30 @@
           <value>http://purl.org/dc/elements/1.1/title</value>
         </iri>
         <iri>
-          <value>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Process</value>
+          <value>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Entity</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
         </iri>
         <iri>
-          <value>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality</value>
+          <value>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationObject</value>
+        </iri>
+        <iri>
+          <value>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Process</value>
         </iri>
         <iri>
           <value>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Region</value>
         </iri>
         <iri>
           <value>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#TimeInterval</value>
-        </iri>
-        <iri>
-          <value>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRegion</value>
-          <annotations>
-            <annotation>
-              <subject>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRegion</subject>
-              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
-              <object>
-                <lexicalForm>has region</lexicalForm>
-                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
-                <language>en</language>
-              </object>
-            </annotation>
-          </annotations>
         </iri>
         <iri>
           <value>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</value>
@@ -343,6 +343,17 @@
         </iri>
         <iri>
           <value>http://www.w3.org/2004/02/skos/core#Concept</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.w3.org/2004/02/skos/core#Concept</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>possible concepts describing the effect of aggregation on the property value, in a concept scheme to be defined: maximum / minimum / product / logical AND / logical OR / list / undefined / weighted average / ...</lexicalForm>
+                <datatype/>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
         </iri>
         <iri>
           <value>http://www.w3.org/ns/prov#Activity</value>
@@ -352,75 +363,6 @@
         </iri>
         <iri>
           <value>https://cdm.ovh/rsm/pop</value>
-        </iri>
-        <iri>
-          <value>https://cdm.ovh/rsm/pop#AssertedQuality</value>
-          <annotations>
-            <annotation>
-              <subject>https://cdm.ovh/rsm/pop#AssertedQuality</subject>
-              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
-              <object>
-                <lexicalForm>Asserted quality</lexicalForm>
-                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
-                <language>en</language>
-              </object>
-            </annotation>
-            <annotation>
-              <subject>https://cdm.ovh/rsm/pop#AssertedQuality</subject>
-              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
-              <object>
-                <lexicalForm>The externally defined property (NOT: PROPERTY VALUE) that AssertedQuality refers to shall be indicated using pop:aboutProperty, which is an owl:AnnotationProperty. pop:aboutProperty can target any rdf resource, such a class, an object property, a data property, as long as that resource unambiguously defines what property is meant (from a domain point of view).</lexicalForm>
-                <datatype/>
-                <language>en</language>
-              </object>
-            </annotation>
-          </annotations>
-        </iri>
-        <iri>
-          <value>https://cdm.ovh/rsm/pop#AssertedTimeInterval</value>
-          <annotations>
-            <annotation>
-              <subject>https://cdm.ovh/rsm/pop#AssertedTimeInterval</subject>
-              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
-              <object>
-                <lexicalForm>a sosa:resultTime is equivalent to a degenerated pop:AssertedInterval. In general, if the observation period is an interval, it will result in an AssertedInterval ending at the resultTime.</lexicalForm>
-                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
-                <language>en</language>
-              </object>
-            </annotation>
-            <annotation>
-              <subject>https://cdm.ovh/rsm/pop#AssertedTimeInterval</subject>
-              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
-              <object>
-                <lexicalForm>Asserted time interval</lexicalForm>
-                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
-                <language>en</language>
-              </object>
-            </annotation>
-          </annotations>
-        </iri>
-        <iri>
-          <value>https://cdm.ovh/rsm/pop#AssertedValue</value>
-          <annotations>
-            <annotation>
-              <subject>https://cdm.ovh/rsm/pop#AssertedValue</subject>
-              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
-              <object>
-                <lexicalForm>Asserted value</lexicalForm>
-                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
-                <language/>
-              </object>
-            </annotation>
-            <annotation>
-              <subject>https://cdm.ovh/rsm/pop#AssertedValue</subject>
-              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
-              <object>
-                <lexicalForm>The value (quality or quantity) and its uncertainty or tolerance, in most generic form.</lexicalForm>
-                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
-                <language>en</language>
-              </object>
-            </annotation>
-          </annotations>
         </iri>
         <iri>
           <value>https://cdm.ovh/rsm/pop#aboutProperty</value>
@@ -513,9 +455,81 @@ POPs and Current State of some Digital Twin (out of scope here) are formally sim
               <subject>https://cdm.ovh/rsm/pop/pop</subject>
               <property>http://purl.org/dc/elements/1.1/date</property>
               <object>
-                <lexicalForm>16 June 2026</lexicalForm>
+                <lexicalForm>17 June 2026</lexicalForm>
                 <datatype/>
                 <language/>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#AssertedQuality</value>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#AssertedQuality</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Asserted quality</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#AssertedQuality</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>The externally defined property (NOT: PROPERTY VALUE) that AssertedQuality refers to shall be indicated using pop:aboutProperty, which is an owl:AnnotationProperty. pop:aboutProperty can target any rdf resource, such as a class, an object property, a data property, as long as that resource unambiguously defines what property is meant (from a domain point of view).</lexicalForm>
+                <datatype/>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#AssertedQuality</value>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#AssertedTimeInterval</value>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#AssertedTimeInterval</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>a sosa:resultTime is equivalent to a degenerated pop:AssertedInterval. In general, if the observation period is an interval, it will result in an AssertedInterval ending at the resultTime.</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#AssertedTimeInterval</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Asserted time interval</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#AssertedValue</value>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#AssertedValue</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Asserted value</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language/>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#AssertedValue</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>The value (quality or quantity) and its uncertainty or tolerance, in most generic form.</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
               </object>
             </annotation>
           </annotations>
@@ -723,6 +737,20 @@ POPs and Current State of some Digital Twin (out of scope here) are formally sim
           </annotations>
         </iri>
         <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#aboutEntity</value>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#aboutEntity</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>about entity</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
           <value>https://cdm.ovh/rsm/pop/pop#aboutProperty</value>
           <annotations>
             <annotation>
@@ -747,6 +775,20 @@ POPs and Current State of some Digital Twin (out of scope here) are formally sim
                 <lexicalForm>aggregation rule</lexicalForm>
                 <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
                 <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>https://cdm.ovh/rsm/pop/pop#assertedBy</value>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/pop/pop#assertedBy</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>asserted by</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language/>
               </object>
             </annotation>
           </annotations>
@@ -807,20 +849,6 @@ POPs and Current State of some Digital Twin (out of scope here) are formally sim
               <object>
                 <lexicalForm>Generalization of sosa:hasSimpleResult</lexicalForm>
                 <datatype/>
-                <language>en</language>
-              </object>
-            </annotation>
-          </annotations>
-        </iri>
-        <iri>
-          <value>https://cdm.ovh/rsm/pop/pop#hasSource</value>
-          <annotations>
-            <annotation>
-              <subject>https://cdm.ovh/rsm/pop/pop#hasSource</subject>
-              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
-              <object>
-                <lexicalForm>has source</lexicalForm>
-                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
                 <language>en</language>
               </object>
             </annotation>
@@ -954,7 +982,7 @@ POPs and Current State of some Digital Twin (out of scope here) are formally sim
       <diagram width="5000" height="5000" name="02 - Valuation">
         <node color="#fcfcfc" type="concept" id="n1">
           <geometry height="50" width="110" y="130" x="50"/>
-          <iri>https://cdm.ovh/rsm/pop#AssertedQuality</iri>
+          <iri>https://cdm.ovh/rsm/pop/pop#AssertedQuality</iri>
           <label height="23" width="110" y="130" x="50" customSize="0" size="12"/>
         </node>
         <node color="#fcfcfc" type="role" id="n16">
@@ -968,8 +996,8 @@ POPs and Current State of some Digital Twin (out of scope here) are formally sim
         </node>
         <node color="#fcfcfc" type="role" id="n19">
           <geometry height="50" width="70" y="130" x="247"/>
-          <iri>https://cdm.ovh/rsm/pop/pop#hasSource</iri>
-          <label height="23" width="64" y="100" x="247" customSize="0" size="12"/>
+          <iri>https://cdm.ovh/rsm/pop/pop#assertedBy</iri>
+          <label height="23" width="67" y="100" x="247" customSize="0" size="12"/>
         </node>
         <node color="#fcfcfc" type="domain-restriction" id="n20">
           <geometry height="20" width="20" y="130" x="157"/>
@@ -980,9 +1008,9 @@ POPs and Current State of some Digital Twin (out of scope here) are formally sim
           <label height="23" width="39" y="108" x="327" customSize="0" size="12">exists</label>
         </node>
         <node color="#fcfcfc" type="concept" id="n22">
-          <geometry height="50" width="175" y="130" x="470"/>
+          <geometry height="50" width="175" y="130" x="460"/>
           <iri>https://cdm.ovh/rsm/pop/pop#AssertionGeneratingActivity</iri>
-          <label height="23" width="175" y="122" x="470" customSize="0" size="12"/>
+          <label height="23" width="175" y="122" x="460" customSize="0" size="12"/>
         </node>
         <node color="#fcfcfc" type="role" id="n26">
           <geometry height="50" width="70" y="-10" x="610"/>
@@ -1004,7 +1032,7 @@ POPs and Current State of some Digital Twin (out of scope here) are formally sim
         </node>
         <node color="#fcfcfc" type="concept" id="n3">
           <geometry height="50" width="110" y="40" x="430"/>
-          <iri>https://cdm.ovh/rsm/pop#AssertedValue</iri>
+          <iri>https://cdm.ovh/rsm/pop/pop#AssertedValue</iri>
           <label height="23" width="110" y="40" x="430" customSize="0" size="12"/>
         </node>
         <node color="#fcfcfc" type="attribute" id="n40">
@@ -1025,23 +1053,36 @@ POPs and Current State of some Digital Twin (out of scope here) are formally sim
           <geometry height="20" width="20" y="270" x="327"/>
           <label height="23" width="39" y="248" x="327" customSize="0" size="12">exists</label>
         </node>
+        <node color="#fcfcfc" type="domain-restriction" id="n44">
+          <geometry height="20" width="20" y="-70" x="160"/>
+          <label height="23" width="39" y="-92" x="160" customSize="0" size="12">exists</label>
+        </node>
+        <node color="#000000" type="range-restriction" id="n45">
+          <geometry height="20" width="20" y="-70" x="330"/>
+          <label height="23" width="39" y="-92" x="330" customSize="0" size="12">exists</label>
+        </node>
+        <node color="#fcfcfc" type="role" id="n46">
+          <geometry height="50" width="70" y="-70" x="240"/>
+          <iri>https://cdm.ovh/rsm/pop/pop#aboutEntity</iri>
+          <label height="23" width="68" y="-100" x="240" customSize="0" size="12"/>
+        </node>
+        <node color="#c2b078" type="concept" id="n47">
+          <geometry height="50" width="110" y="-70" x="430"/>
+          <iri>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity</iri>
+          <label height="23" width="110" y="-70" x="430" customSize="0" size="12"/>
+        </node>
         <node color="#fcfcfc" type="role" id="n6">
           <geometry height="50" width="70" y="40" x="240"/>
           <iri>https://cdm.ovh/rsm/pop/pop#hasAssertedValue</iri>
           <label height="23" width="104" y="10" x="240" customSize="0" size="12"/>
         </node>
         <node color="#fcfcfc" type="domain-restriction" id="n7">
-          <geometry height="20" width="20" y="40" x="150"/>
-          <label height="23" width="39" y="18" x="150" customSize="0" size="12">exists</label>
+          <geometry height="20" width="20" y="40" x="160"/>
+          <label height="23" width="39" y="18" x="160" customSize="0" size="12">exists</label>
         </node>
         <node color="#000000" type="range-restriction" id="n8">
           <geometry height="20" width="20" y="40" x="330"/>
           <label height="23" width="39" y="18" x="330" customSize="0" size="12">exists</label>
-        </node>
-        <node color="#c2b078" type="role" id="n9">
-          <geometry height="50" width="70" y="-60" x="240"/>
-          <iri>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRegion</iri>
-          <label height="23" width="64" y="-90" x="240" customSize="0" size="12"/>
         </node>
         <edge source="n16" target="n17" type="input" id="e15">
           <point y="80" x="610"/>
@@ -1061,7 +1102,7 @@ POPs and Current State of some Digital Twin (out of scope here) are formally sim
         </edge>
         <edge source="n21" target="n22" type="inclusion" id="e19">
           <point y="130" x="327"/>
-          <point y="130" x="470"/>
+          <point y="130" x="460"/>
         </edge>
         <edge source="n27" target="n3" type="inclusion" id="e24">
           <point y="-10" x="530"/>
@@ -1088,7 +1129,7 @@ POPs and Current State of some Digital Twin (out of scope here) are formally sim
           <point y="130" x="50"/>
         </edge>
         <edge source="n7" target="n1" type="inclusion" id="e4">
-          <point y="40" x="150"/>
+          <point y="40" x="160"/>
           <point y="130" x="50"/>
         </edge>
         <edge source="n41" target="n1" type="inclusion" id="e42">
@@ -1107,23 +1148,35 @@ POPs and Current State of some Digital Twin (out of scope here) are formally sim
           <point y="270" x="327"/>
           <point y="270" x="427"/>
         </edge>
+        <edge source="n44" target="n1" type="inclusion" id="e47">
+          <point y="-70" x="160"/>
+          <point y="130" x="50"/>
+        </edge>
+        <edge source="n46" target="n44" type="input" id="e48">
+          <point y="-70" x="240"/>
+          <point y="-70" x="160"/>
+        </edge>
+        <edge source="n46" target="n45" type="input" id="e49">
+          <point y="-70" x="240"/>
+          <point y="-70" x="330"/>
+        </edge>
         <edge source="n6" target="n7" type="input" id="e5">
           <point y="40" x="240"/>
-          <point y="40" x="150"/>
+          <point y="40" x="160"/>
+        </edge>
+        <edge source="n45" target="n47" type="inclusion" id="e50">
+          <point y="-70" x="330"/>
+          <point y="-70" x="430"/>
         </edge>
         <edge source="n6" target="n8" type="input" id="e6">
           <point y="40" x="240"/>
           <point y="40" x="330"/>
         </edge>
-        <edge source="n6" target="n9" type="inclusion" id="e7">
-          <point y="40" x="240"/>
-          <point y="-60" x="240"/>
-        </edge>
       </diagram>
       <diagram width="5000" height="5000" name="03 - Qualities">
         <node color="#fcfcfc" type="concept" id="n0">
           <geometry height="50" width="110" y="-40" x="80"/>
-          <iri>https://cdm.ovh/rsm/pop#AssertedQuality</iri>
+          <iri>https://cdm.ovh/rsm/pop/pop#AssertedQuality</iri>
           <label height="23" width="110" y="-40" x="80" customSize="0" size="12"/>
         </node>
         <node color="#fcfcfc" type="concept" id="n1">
@@ -1157,11 +1210,6 @@ POPs and Current State of some Digital Twin (out of scope here) are formally sim
           <geometry height="20" width="20" y="90" x="420"/>
           <label height="23" width="39" y="68" x="420" customSize="0" size="12">exists</label>
         </node>
-        <node color="#c2b078" type="concept" id="n8">
-          <geometry height="50" width="110" y="-120" x="80"/>
-          <iri>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality</iri>
-          <label height="23" width="110" y="-120" x="80" customSize="0" size="12"/>
-        </node>
         <edge source="n2" target="n0" type="inclusion" id="e1">
           <point y="20" x="80"/>
           <point y="-40" x="80"/>
@@ -1190,15 +1238,11 @@ POPs and Current State of some Digital Twin (out of scope here) are formally sim
           <point y="90" x="260"/>
           <point y="90" x="160"/>
         </edge>
-        <edge source="n0" target="n8" type="inclusion" id="e8">
-          <point y="-40" x="80"/>
-          <point y="-120" x="80"/>
-        </edge>
       </diagram>
       <diagram width="5000" height="5000" name="04 - Upper and related">
         <node color="#fcfcfc" type="concept" id="n10">
           <geometry height="50" width="110" y="430" x="210"/>
-          <iri>https://cdm.ovh/rsm/pop#AssertedValue</iri>
+          <iri>https://cdm.ovh/rsm/pop/pop#AssertedValue</iri>
           <label height="23" width="110" y="430" x="210" customSize="0" size="12"/>
         </node>
         <node color="#c2b078" type="concept" id="n11">
@@ -1207,29 +1251,19 @@ POPs and Current State of some Digital Twin (out of scope here) are formally sim
           <label height="23" width="110" y="290" x="390" customSize="0" size="12"/>
         </node>
         <node color="#fcfcfc" type="concept" id="n12">
-          <geometry height="50" width="110" y="430" x="390"/>
-          <iri>https://cdm.ovh/rsm/pop#AssertedTimeInterval</iri>
-          <label height="38" width="110" y="430" x="390" customSize="0" size="12"/>
+          <geometry height="50" width="135" y="430" x="390"/>
+          <iri>https://cdm.ovh/rsm/pop/pop#AssertedTimeInterval</iri>
+          <label height="23" width="135" y="430" x="390" customSize="0" size="12"/>
         </node>
         <node color="#fcfcfc" type="concept" id="n13">
           <geometry height="50" width="110" y="430" x="40"/>
-          <iri>https://cdm.ovh/rsm/pop#AssertedQuality</iri>
+          <iri>https://cdm.ovh/rsm/pop/pop#AssertedQuality</iri>
           <label height="23" width="110" y="430" x="40" customSize="0" size="12"/>
         </node>
         <node color="#c2b078" type="concept" id="n14">
           <geometry height="50" width="110" y="290" x="40"/>
-          <iri>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality</iri>
+          <iri>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationObject</iri>
           <label height="23" width="110" y="290" x="40" customSize="0" size="12"/>
-        </node>
-        <node color="#fcfcfc" type="role" id="n15">
-          <geometry height="50" width="70" y="430" x="560"/>
-          <iri>https://cdm.ovh/rsm/pop/pop#hasAssertedValue</iri>
-          <label height="23" width="104" y="400" x="560" customSize="0" size="12"/>
-        </node>
-        <node color="#c2b078" type="role" id="n16">
-          <geometry height="50" width="70" y="290" x="560"/>
-          <iri>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRegion</iri>
-          <label height="23" width="64" y="260" x="560" customSize="0" size="12"/>
         </node>
         <node color="#c2b078" type="concept" id="n17">
           <geometry height="50" width="110" y="-40" x="470"/>
@@ -1276,10 +1310,6 @@ POPs and Current State of some Digital Twin (out of scope here) are formally sim
         <edge source="n13" target="n14" type="inclusion" id="e12">
           <point y="430" x="40"/>
           <point y="290" x="40"/>
-        </edge>
-        <edge source="n15" target="n16" type="inclusion" id="e13">
-          <point y="430" x="560"/>
-          <point y="290" x="560"/>
         </edge>
         <edge source="n18" target="n17" type="inclusion" id="e14">
           <point y="120" x="380"/>

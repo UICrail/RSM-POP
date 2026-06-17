@@ -15,7 +15,7 @@
 <https://cdm.ovh/rsm/pop/pop> rdf:type owl:Ontology ;
                                owl:versionIRI <https://cdm.ovh/rsm/pop/0.2/pop> ;
                                dc:creator "Airy Magnien" ;
-                               dc:date "16 June 2026" ;
+                               dc:date "17 June 2026" ;
                                dc:description """Ontology for Prescriptions (subclass of dul:Description), Observations, Predictions. Built on DUL, PROV-O, and SOSA/SSN. Also considers Specifications and Corrections (as subclasses of Prescriptions).
 
 POPs and Current State of some Digital Twin (out of scope here) are formally similar, but epistemically quite different: POPs are facts, hence immutable. Facts can be erroneous or incomplete or obsolete, but remain as they were delivered or computed until they get discarded."""@en ;
@@ -25,9 +25,9 @@ POPs and Current State of some Digital Twin (out of scope here) are formally sim
                                owl:versionInfo "0.2: time dimension removed (expected to be handled with dul:Situation or similar). IRI refactoring and conceptual cleanup."@en .
 
 #################################################################
-#    Annotation properties
+#    Annotation properties
 #################################################################
-
+
 ###  http://purl.org/dc/elements/1.1/creator
 dc:creator rdf:type owl:AnnotationProperty .
 
@@ -48,21 +48,29 @@ dc:license rdf:type owl:AnnotationProperty .
 dc:title rdf:type owl:AnnotationProperty .
 
 
+###  https://cdm.ovh/rsm/pop/pop#aboutProperty
+pop:aboutProperty rdf:type owl:AnnotationProperty ;
+                  rdfs:comment "References the external property (rdf:Property, owl:ObjectProperty, owl:DatatypeProperty, reified property, ...) that an AssertedQuality is about. Ignored by OWL reasoners; provides semantic context only."@en ;
+                  rdfs:label "about property"@en .
+
+
 #################################################################
-#    Datatypes
+#    Datatypes
 #################################################################
-
+
 ###  http://www.w3.org/2001/XMLSchema#dateTime
 xsd:dateTime rdf:type rdfs:Datatype .
 
 
 #################################################################
-#    Object Properties
+#    Object Properties
 #################################################################
-
-###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRegion
-dul:hasRegion rdf:type owl:ObjectProperty ;
-              rdfs:label "has region"@en .
+
+###  https://cdm.ovh/rsm/pop/pop#aboutEntity
+pop:aboutEntity rdf:type owl:ObjectProperty ;
+                rdfs:domain pop:AssertedQuality ;
+                rdfs:range dul:Entity ;
+                rdfs:label "about entity"@en .
 
 
 ###  https://cdm.ovh/rsm/pop/pop#aggregationRule
@@ -73,65 +81,69 @@ pop:aggregationRule rdf:type owl:ObjectProperty ,
                     rdfs:label "aggregation rule"@en .
 
 
+###  https://cdm.ovh/rsm/pop/pop#assertedBy
+pop:assertedBy rdf:type owl:ObjectProperty ;
+               rdfs:domain pop:AssertedQuality ;
+               rdfs:range pop:AssertionGeneratingActivity ;
+               rdfs:label "asserted by" .
+
+
 ###  https://cdm.ovh/rsm/pop/pop#boundariesNode
 pop:boundariesNode rdf:type owl:ObjectProperty ;
-                   rdfs:domain <https://cdm.ovh/rsm/pop#AssertedValue> ;
+                   rdfs:domain pop:AssertedValue ;
                    rdfs:comment "Can be expressed as an interval (hence \"boundaries\"), or a distribution, a confidence interval, etc."@en ;
                    rdfs:label "boundaries node"@en .
 
 
 ###  https://cdm.ovh/rsm/pop/pop#hasAssertedValue
-pop:hasAssertedValue rdf:type owl:ObjectProperty ;
-                     rdfs:subPropertyOf dul:hasRegion ;
-                     rdf:type owl:FunctionalProperty ;
-                     rdfs:domain <https://cdm.ovh/rsm/pop#AssertedQuality> ;
-                     rdfs:range <https://cdm.ovh/rsm/pop#AssertedValue> ;
+pop:hasAssertedValue rdf:type owl:ObjectProperty ,
+                              owl:FunctionalProperty ;
+                     rdfs:domain pop:AssertedQuality ;
+                     rdfs:range pop:AssertedValue ;
                      rdfs:label "has asserted value"@en .
-
-
-###  https://cdm.ovh/rsm/pop/pop#hasSource
-pop:hasSource rdf:type owl:ObjectProperty ;
-              rdfs:domain <https://cdm.ovh/rsm/pop#AssertedQuality> ;
-              rdfs:range pop:AssertionGeneratingActivity ;
-              rdfs:label "has source"@en .
 
 
 ###  https://cdm.ovh/rsm/pop/pop#valueNode
 pop:valueNode rdf:type owl:ObjectProperty ;
-              rdfs:domain <https://cdm.ovh/rsm/pop#AssertedValue> ;
+              rdfs:domain pop:AssertedValue ;
               rdfs:comment "valueNode points to any resource (possibly an IRI, a string, a blank node...) holding the value of a property. It may be the original value provided by an RDF data source. Data type (if applicable) and data constraints are entirely the responsibility of the source."@en ;
               rdfs:label "value node"@en .
 
 
 #################################################################
-#    Data properties
+#    Data properties
 #################################################################
-
+
 ###  https://cdm.ovh/rsm/pop/pop#hasSimpleResult
 pop:hasSimpleResult rdf:type owl:DatatypeProperty ;
-                    rdfs:domain <https://cdm.ovh/rsm/pop#AssertedQuality> ;
+                    rdfs:domain pop:AssertedQuality ;
                     rdfs:comment "Generalization of sosa:hasSimpleResult"@en ;
                     rdfs:label "has simple result" .
 
 
 ###  https://cdm.ovh/rsm/pop/pop#resultTime
 pop:resultTime rdf:type owl:DatatypeProperty ;
-               rdfs:domain <https://cdm.ovh/rsm/pop#AssertedQuality> ;
+               rdfs:domain pop:AssertedQuality ;
                rdfs:range xsd:dateTime ;
                rdfs:comment "generalisation of sosa:resultTime"@en ;
                rdfs:label "result time"@en .
 
 
 #################################################################
-#    Classes
+#    Classes
 #################################################################
-
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity
+dul:Entity rdf:type owl:Class ;
+           rdfs:label "Entity"@en .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationObject
+dul:InformationObject rdf:type owl:Class .
+
+
 ###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Process
 dul:Process rdf:type owl:Class .
-
-
-###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality
-dul:Quality rdf:type owl:Class .
 
 
 ###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Region
@@ -143,7 +155,8 @@ dul:TimeInterval rdf:type owl:Class .
 
 
 ###  http://www.w3.org/2004/02/skos/core#Concept
-skos:Concept rdf:type owl:Class .
+skos:Concept rdf:type owl:Class ;
+             rdfs:comment "possible concepts describing the effect of aggregation on the property value, in a concept scheme to be defined: maximum / minimum / product / logical AND / logical OR / list / undefined / weighted average / ..."@en .
 
 
 ###  http://www.w3.org/ns/prov#Activity
@@ -154,25 +167,25 @@ prov:Activity rdf:type owl:Class .
 sosa:Observation rdf:type owl:Class .
 
 
-###  https://cdm.ovh/rsm/pop#AssertedQuality
-<https://cdm.ovh/rsm/pop#AssertedQuality> rdf:type owl:Class ;
-                                          rdfs:subClassOf dul:Quality ;
-                                          rdfs:comment "The externally defined property (NOT: PROPERTY VALUE) that AssertedQuality refers to shall be indicated using pop:aboutProperty, which is an owl:AnnotationProperty. pop:aboutProperty can target any rdf resource, such a class, an object property, a data property, as long as that resource unambiguously defines what property is meant (from a domain point of view)."@en ;
-                                          rdfs:label "Asserted quality"@en .
+###  https://cdm.ovh/rsm/pop/pop#AssertedQuality
+pop:AssertedQuality rdf:type owl:Class ;
+                    rdfs:subClassOf dul:InformationObject ;
+                    rdfs:comment "The externally defined property (NOT: PROPERTY VALUE) that AssertedQuality refers to shall be indicated using pop:aboutProperty, which is an owl:AnnotationProperty. pop:aboutProperty can target any rdf resource, such as a class, an object property, a data property, as long as that resource unambiguously defines what property is meant (from a domain point of view)."@en ;
+                    rdfs:label "Asserted quality"@en .
 
 
-###  https://cdm.ovh/rsm/pop#AssertedTimeInterval
-<https://cdm.ovh/rsm/pop#AssertedTimeInterval> rdf:type owl:Class ;
-                                               rdfs:subClassOf dul:TimeInterval ;
-                                               rdfs:comment "a sosa:resultTime is equivalent to a degenerated pop:AssertedInterval. In general, if the observation period is an interval, it will result in an AssertedInterval ending at the resultTime."@en ;
-                                               rdfs:label "Asserted time interval"@en .
+###  https://cdm.ovh/rsm/pop/pop#AssertedTimeInterval
+pop:AssertedTimeInterval rdf:type owl:Class ;
+                         rdfs:subClassOf dul:TimeInterval ;
+                         rdfs:comment "a sosa:resultTime is equivalent to a degenerated pop:AssertedInterval. In general, if the observation period is an interval, it will result in an AssertedInterval ending at the resultTime."@en ;
+                         rdfs:label "Asserted time interval"@en .
 
 
-###  https://cdm.ovh/rsm/pop#AssertedValue
-<https://cdm.ovh/rsm/pop#AssertedValue> rdf:type owl:Class ;
-                                        rdfs:subClassOf dul:Region ;
-                                        rdfs:comment "The value (quality or quantity) and its uncertainty or tolerance, in most generic form."@en ;
-                                        rdfs:label "Asserted value" .
+###  https://cdm.ovh/rsm/pop/pop#AssertedValue
+pop:AssertedValue rdf:type owl:Class ;
+                  rdfs:subClassOf dul:Region ;
+                  rdfs:comment "The value (quality or quantity) and its uncertainty or tolerance, in most generic form."@en ;
+                  rdfs:label "Asserted value" .
 
 
 ###  https://cdm.ovh/rsm/pop/pop#AssertionGeneratingActivity
@@ -197,14 +210,14 @@ pop:Estimation rdf:type owl:Class ;
 
 ###  https://cdm.ovh/rsm/pop/pop#ExtensiveQuality
 pop:ExtensiveQuality rdf:type owl:Class ;
-                     rdfs:subClassOf <https://cdm.ovh/rsm/pop#AssertedQuality> ;
+                     rdfs:subClassOf pop:AssertedQuality ;
                      owl:disjointWith pop:IntensiveQuality ;
                      rdfs:label "Extensive quality"@en .
 
 
 ###  https://cdm.ovh/rsm/pop/pop#IntensiveQuality
 pop:IntensiveQuality rdf:type owl:Class ;
-                     rdfs:subClassOf <https://cdm.ovh/rsm/pop#AssertedQuality> ;
+                     rdfs:subClassOf pop:AssertedQuality ;
                      rdfs:label "Intensive quality"@en .
 
 
