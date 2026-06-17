@@ -353,6 +353,15 @@
                 <language>en</language>
               </object>
             </annotation>
+            <annotation>
+              <subject>http://www.w3.org/2004/02/skos/core#Concept</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>concept</lexicalForm>
+                <datatype/>
+                <language>en</language>
+              </object>
+            </annotation>
           </annotations>
         </iri>
         <iri>

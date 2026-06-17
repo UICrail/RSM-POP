@@ -156,7 +156,8 @@ dul:TimeInterval rdf:type owl:Class .
 
 ###  http://www.w3.org/2004/02/skos/core#Concept
 skos:Concept rdf:type owl:Class ;
-             rdfs:comment "possible concepts describing the effect of aggregation on the property value, in a concept scheme to be defined: maximum / minimum / product / logical AND / logical OR / list / undefined / weighted average / ..."@en .
+             rdfs:comment "possible concepts describing the effect of aggregation on the property value, in a concept scheme to be defined: maximum / minimum / product / logical AND / logical OR / list / undefined / weighted average / ..."@en ;
+             rdfs:label "concept"@en .
 
 
 ###  http://www.w3.org/ns/prov#Activity
