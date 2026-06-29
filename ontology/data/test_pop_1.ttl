@@ -1,0 +1,407 @@
+@prefix : <https://cdm.ovh/examples#> .
+@prefix era: <http://data.europa.eu/949/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pop: <https://cdm.ovh/rsm/pop/pop#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix list: <https://cdm.ovh/rsm/list2/list2#> .
+@prefix loca: <https://cdm.ovh/rsm/localisation/loca#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rgeo: <https://cdm.ovh/rsm/geosparql_adapter/rgeo#> .
+@prefix rlrs: <https://cdm.ovh/rsm/linearReferencing/rlrs#> .
+@prefix topo: <https://cdm.ovh/rsm/topology/topo#> .
+@prefix work: <https://cdm.ovh/examples#> .
+@base <https://cdm.ovh/examples#> .
+
+<https://cdm.ovh/examples> rdf:type owl:Ontology ;
+                            owl:imports <https://cdm.ovh/rsm/localisation/loca> ,
+                                        <https://cdm.ovh/rsm/pop/0.2/pop> ,
+                                        <https://cdm.ovh/rsm/topology/topo> ;
+                            rdfs:comment """Fictitious sRSM network topology for documenting POP usage of ERA property. The network is composed of main track (3 linear elements lin1..lin3) and one siding (lin4), parallel to lin4. All are electrified, lin4 over part of its length only.
+
+Observed ERA property is maximum contact line height. It differs between the main track and the siding.
+
+sRSM (topo, loca, pop) expresses where maximum contact wire height applies and what its value is.
+
+Concerning the ERA ontology, we refer to the exact semantics of the RINF property \"Maximum contact wire height\". As RINF properties are information objects rather than properties of precisely designated physical bodies, we can feel free to assign (here: project) such properties to anything sensible - in the present case, locations on a topology. In a different context (e.g. a Digital Twin), properties would rather be owned by entities they qualify, which sRSM also allows.
+
+Using sRSM Location, we can exactly express where the property applies.
+
+Note: the ERA ontology, in its current version (3.3.1) only resolves properties to individual running tracks and cannot inform sidings or other tracks."""@en ;
+                            rdfs:label "Railway Network Model" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.opengis.net/ont/geosparql#asWKT
+geo:asWKT rdf:type owl:AnnotationProperty .
+
+
+###  https://cdm.ovh/rsm/geosparql_adapter/rgeo#asWKT
+rgeo:asWKT rdf:type owl:AnnotationProperty .
+
+
+###  https://cdm.ovh/rsm/geosparql_adapter/rgeo#geometryOf
+rgeo:geometryOf rdf:type owl:AnnotationProperty .
+
+
+###  https://cdm.ovh/rsm/geosparql_adapter/rgeo#hasGeometry
+rgeo:hasGeometry rdf:type owl:AnnotationProperty .
+
+
+###  https://cdm.ovh/rsm/linearReferencing/rlrs#hasPositionExpression
+rlrs:hasPositionExpression rdf:type owl:AnnotationProperty .
+
+
+###  https://cdm.ovh/rsm/linearReferencing/rlrs#icValue
+rlrs:icValue rdf:type owl:AnnotationProperty .
+
+
+###  https://cdm.ovh/rsm/linearReferencing/rlrs#linearElement
+rlrs:linearElement rdf:type owl:AnnotationProperty .
+
+
+###  https://cdm.ovh/rsm/list2/list2#hasNext
+list:hasNext rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://cdm.ovh/examples#aggregationRule
+work:aggregationRule rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://cdm.ovh/examples#MaxContactWireHeight
+work:MaxContactWireHeight rdf:type owl:Class ;
+                          rdfs:subClassOf pop:IntensiveQuality ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty work:aggregationRule ;
+                                            owl:hasValue <https://cdm.ovh/rsm/schemes/aggr#MAX>
+                                          ] ;
+                          pop:aboutProperty era:maximumContactWireHeight .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://cdm.ovh/examples#LinearLoc_electrified
+work:LinearLoc_electrified rdf:type owl:NamedIndividual ,
+                                    loca:LinearLocation ;
+                           rlrs:positionedBy [ rdf:type rlrs:IntrinsicPosition ;
+                                               rlrs:hasPositionExpression [ rdf:type rlrs:IntrinsicPositionExpression ;
+                                                                            rlrs:icValue 0.0 ;
+                                                                            rlrs:linearElement work:lin4
+                                                                          ] ;
+                                               list:hasNext [ rdf:type rlrs:IntrinsicPosition ;
+                                                              rlrs:hasPositionExpression [ rdf:type rlrs:IntrinsicPositionExpression ;
+                                                                                           rlrs:icValue 1.0 ;
+                                                                                           rlrs:linearElement work:lin4
+                                                                                         ] ;
+                                                              list:hasNext list:emptyList
+                                                            ]
+                                             ] ;
+                           rdfs:label "LinearLoc_siding" .
+
+
+###  https://cdm.ovh/examples#MaxContactWireHeightOnMainTrack
+work:MaxContactWireHeightOnMainTrack rdf:type owl:NamedIndividual ,
+                                              work:MaxContactWireHeight ;
+                                     pop:aboutEntity work:areaLoc_electrified ;
+                                     pop:hasSimpleResult 5.5 ;
+                                     pop:aboutProperty era:maximumContactWireHeight .
+
+
+###  https://cdm.ovh/examples#MaxContactWireHeightOnSiding
+work:MaxContactWireHeightOnSiding rdf:type owl:NamedIndividual ,
+                                           work:MaxContactWireHeight ;
+                                  pop:aboutEntity work:LinearLoc_electrified ;
+                                  pop:hasSimpleResult 6.2 ;
+                                  pop:aboutProperty era:maximumContactWireHeight .
+
+
+###  https://cdm.ovh/examples#RINF_data_collection
+work:RINF_data_collection rdf:type owl:NamedIndividual ,
+                                   pop:Observation ,
+                                   pop:Prediction ;
+                          rdfs:comment "RINF data collection joins observation (present state of infrastructure parameter values) and prediction (the observed state will hold in the foreseeable future)."@en .
+
+
+###  https://cdm.ovh/examples#areaLoc_electrified
+work:areaLoc_electrified rdf:type owl:NamedIndividual ,
+                                  loca:AreaLocation ;
+                         rlrs:positionedBy [ rdf:type rlrs:IntrinsicPosition ;
+                                             rlrs:hasPositionExpression [ rdf:type rlrs:IntrinsicPositionExpression ;
+                                                                          rlrs:icValue 0.0 ;
+                                                                          rlrs:linearElement work:lin1
+                                                                        ] ;
+                                             list:hasNext [ rdf:type rlrs:IntrinsicPosition ;
+                                                            rlrs:hasPositionExpression [ rdf:type rlrs:IntrinsicPositionExpression ;
+                                                                                         rlrs:icValue 1.0 ;
+                                                                                         rlrs:linearElement work:lin1
+                                                                                       ] ;
+                                                            list:hasNext [ rdf:type rlrs:IntrinsicPosition ;
+                                                                           rlrs:hasPositionExpression [ rdf:type rlrs:IntrinsicPositionExpression ;
+                                                                                                        rlrs:icValue 0.0 ;
+                                                                                                        rlrs:linearElement work:lin2
+                                                                                                      ] ;
+                                                                           list:hasNext [ rdf:type rlrs:IntrinsicPosition ;
+                                                                                          rlrs:hasPositionExpression [ rdf:type rlrs:IntrinsicPositionExpression ;
+                                                                                                                       rlrs:icValue 1.0 ;
+                                                                                                                       rlrs:linearElement work:lin2
+                                                                                                                     ] ;
+                                                                                          list:hasNext [ rdf:type rlrs:IntrinsicPosition ;
+                                                                                                         rlrs:hasPositionExpression [ rdf:type rlrs:IntrinsicPositionExpression ;
+                                                                                                                                      rlrs:icValue 0.0 ;
+                                                                                                                                      rlrs:linearElement work:lin3
+                                                                                                                                    ] ;
+                                                                                                         list:hasNext [ rdf:type rlrs:IntrinsicPosition ;
+                                                                                                                        rlrs:hasPositionExpression [ rdf:type rlrs:IntrinsicPositionExpression ;
+                                                                                                                                                     rlrs:icValue 0.625984252 ;
+                                                                                                                                                     rlrs:linearElement work:lin3
+                                                                                                                                                   ] ;
+                                                                                                                        list:hasNext list:emptyList
+                                                                                                                      ]
+                                                                                                       ]
+                                                                                        ]
+                                                                         ]
+                                                          ]
+                                           ] ;
+                         rdfs:comment "The area location appears as a linked list where the order bears no significance. Using a linked list allows to close the list, providing certainty in information completeness."@en ;
+                         rdfs:label "areaLoc_main" .
+
+
+###  https://cdm.ovh/examples#lin1
+work:lin1 rdf:type owl:NamedIndividual ,
+                   topo:LinearElement ;
+          topo:port0 work:port1_0 ;
+          topo:port1 work:port1_1 ;
+          rdfs:label "lin1" ;
+          rgeo:hasGeometry work:lin1_geometry .
+
+
+###  https://cdm.ovh/examples#lin1_geometry
+work:lin1_geometry rdf:type owl:NamedIndividual ,
+                            rgeo:Geometry ;
+                   geo:asWKT "LINESTRING (394110.0 6537160.0, 396600.0 6537180.0)" ;
+                   rgeo:asWKT "LINESTRING (394110.0 6537160.0, 396600.0 6537180.0)" ;
+                   rgeo:geometryOf work:lin1 .
+
+
+###  https://cdm.ovh/examples#lin2
+work:lin2 rdf:type owl:NamedIndividual ,
+                   topo:LinearElement ;
+          topo:port0 work:port2_0 ;
+          topo:port1 work:port2_1 ;
+          rdfs:label "lin2" ;
+          rgeo:hasGeometry work:lin2_geometry .
+
+
+###  https://cdm.ovh/examples#lin2_geometry
+work:lin2_geometry rdf:type owl:NamedIndividual ,
+                            rgeo:Geometry ;
+                   geo:asWKT "LINESTRING (396600.0 6537180.0, 399500.0 6537220.0)" ;
+                   rgeo:asWKT "LINESTRING (396600.0 6537180.0, 399500.0 6537220.0)" ;
+                   rgeo:geometryOf work:lin2 .
+
+
+###  https://cdm.ovh/examples#lin3
+work:lin3 rdf:type owl:NamedIndividual ,
+                   topo:LinearElement ;
+          topo:port0 work:port3_0 ;
+          topo:port1 work:port3_1 ;
+          rdfs:label "lin3" ;
+          rgeo:hasGeometry work:lin3_geometry .
+
+
+###  https://cdm.ovh/examples#lin3_geometry
+work:lin3_geometry rdf:type owl:NamedIndividual ,
+                            rgeo:Geometry ;
+                   geo:asWKT "LINESTRING (399500.0 6537220.0, 402040.0 6537240.0)" ;
+                   rgeo:asWKT "LINESTRING (399500.0 6537220.0, 402040.0 6537240.0)" ;
+                   rgeo:geometryOf work:lin3 .
+
+
+###  https://cdm.ovh/examples#lin4
+work:lin4 rdf:type owl:NamedIndividual ,
+                   topo:LinearElement ;
+          topo:port0 work:port4_0 ;
+          topo:port1 work:port4_1 ;
+          rdfs:label "lin4" ;
+          rgeo:hasGeometry work:lin4_geometry .
+
+
+###  https://cdm.ovh/examples#lin4_geometry
+work:lin4_geometry rdf:type owl:NamedIndividual ,
+                            rgeo:Geometry ;
+                   geo:asWKT "LINESTRING (396600.0 6537180.0, 397200.0 6537470.0, 398810.0 6537480.0, 399500.0 6537220.0)" ;
+                   rgeo:asWKT "LINESTRING (396600.0 6537180.0, 397200.0 6537470.0, 398810.0 6537480.0, 399500.0 6537220.0)" ;
+                   rgeo:geometryOf work:lin4 .
+
+
+###  https://cdm.ovh/examples#port1_0
+work:port1_0 rdf:type owl:NamedIndividual ,
+                      topo:Port ;
+             topo:onElement work:lin1 ;
+             rdfs:label "port1_0" ;
+             rgeo:hasGeometry work:port1_0_geometry .
+
+
+###  https://cdm.ovh/examples#port1_0_geometry
+work:port1_0_geometry rdf:type owl:NamedIndividual ,
+                               rgeo:Geometry ;
+                      geo:asWKT "POINT (394110.0 6537160.0)" ;
+                      rgeo:asWKT "POINT (394110.0 6537160.0)" ;
+                      rgeo:geometryOf work:port1_0 .
+
+
+###  https://cdm.ovh/examples#port1_1
+work:port1_1 rdf:type owl:NamedIndividual ,
+                      topo:Port ;
+             topo:connectedWith work:port2_0 ,
+                                work:port4_0 ;
+             topo:navigableTo work:port2_1 ,
+                              work:port4_1 ;
+             topo:onElement work:lin1 ;
+             rdfs:label "port1_1" ;
+             rgeo:hasGeometry work:port1_1_geometry .
+
+
+###  https://cdm.ovh/examples#port1_1_geometry
+work:port1_1_geometry rdf:type owl:NamedIndividual ,
+                               rgeo:Geometry ;
+                      geo:asWKT "POINT (396600.0 6537180.0)" ;
+                      rgeo:asWKT "POINT (396600.0 6537180.0)" ;
+                      rgeo:geometryOf work:port1_1 .
+
+
+###  https://cdm.ovh/examples#port2_0
+work:port2_0 rdf:type owl:NamedIndividual ,
+                      topo:Port ;
+             topo:connectedWith work:port1_1 ,
+                                work:port4_0 ;
+             topo:navigableTo work:port1_0 ;
+             topo:nonNavigableTo work:port4_1 ;
+             topo:onElement work:lin2 ;
+             rdfs:label "port2_0" ;
+             rgeo:hasGeometry work:port2_0_geometry .
+
+
+###  https://cdm.ovh/examples#port2_0_geometry
+work:port2_0_geometry rdf:type owl:NamedIndividual ,
+                               rgeo:Geometry ;
+                      geo:asWKT "POINT (396600.0 6537180.0)" ;
+                      rgeo:asWKT "POINT (396600.0 6537180.0)" ;
+                      rgeo:geometryOf work:port2_0 .
+
+
+###  https://cdm.ovh/examples#port2_1
+work:port2_1 rdf:type owl:NamedIndividual ,
+                      topo:Port ;
+             topo:connectedWith work:port3_0 ,
+                                work:port4_1 ;
+             topo:navigableTo work:port3_1 ;
+             topo:nonNavigableTo work:port4_0 ;
+             topo:onElement work:lin2 ;
+             rdfs:label "port2_1" ;
+             rgeo:hasGeometry work:port2_1_geometry .
+
+
+###  https://cdm.ovh/examples#port2_1_geometry
+work:port2_1_geometry rdf:type owl:NamedIndividual ,
+                               rgeo:Geometry ;
+                      geo:asWKT "POINT (399500.0 6537220.0)" ;
+                      rgeo:asWKT "POINT (399500.0 6537220.0)" ;
+                      rgeo:geometryOf work:port2_1 .
+
+
+###  https://cdm.ovh/examples#port3_0
+work:port3_0 rdf:type owl:NamedIndividual ,
+                      topo:Port ;
+             topo:connectedWith work:port2_1 ,
+                                work:port4_1 ;
+             topo:navigableTo work:port2_0 ,
+                              work:port4_0 ;
+             topo:onElement work:lin3 ;
+             rdfs:label "port3_0" ;
+             rgeo:hasGeometry work:port3_0_geometry .
+
+
+###  https://cdm.ovh/examples#port3_0_geometry
+work:port3_0_geometry rdf:type owl:NamedIndividual ,
+                               rgeo:Geometry ;
+                      geo:asWKT "POINT (399500.0 6537220.0)" ;
+                      rgeo:asWKT "POINT (399500.0 6537220.0)" ;
+                      rgeo:geometryOf work:port3_0 .
+
+
+###  https://cdm.ovh/examples#port3_1
+work:port3_1 rdf:type owl:NamedIndividual ,
+                      topo:Port ;
+             topo:onElement work:lin3 ;
+             rdfs:label "port3_1" ;
+             rgeo:hasGeometry work:port3_1_geometry .
+
+
+###  https://cdm.ovh/examples#port3_1_geometry
+work:port3_1_geometry rdf:type owl:NamedIndividual ,
+                               rgeo:Geometry ;
+                      geo:asWKT "POINT (402040.0 6537240.0)" ;
+                      rgeo:asWKT "POINT (402040.0 6537240.0)" ;
+                      rgeo:geometryOf work:port3_1 .
+
+
+###  https://cdm.ovh/examples#port4_0
+work:port4_0 rdf:type owl:NamedIndividual ,
+                      topo:Port ;
+             topo:connectedWith work:port1_1 ,
+                                work:port2_0 ;
+             topo:navigableTo work:port1_0 ;
+             topo:nonNavigableTo work:port2_1 ;
+             topo:onElement work:lin4 ;
+             rdfs:label "port4_0" ;
+             rgeo:hasGeometry work:port4_0_geometry .
+
+
+###  https://cdm.ovh/examples#port4_0_geometry
+work:port4_0_geometry rdf:type owl:NamedIndividual ,
+                               rgeo:Geometry ;
+                      geo:asWKT "POINT (396600.0 6537180.0)" ;
+                      rgeo:asWKT "POINT (396600.0 6537180.0)" ;
+                      rgeo:geometryOf work:port4_0 .
+
+
+###  https://cdm.ovh/examples#port4_1
+work:port4_1 rdf:type owl:NamedIndividual ,
+                      topo:Port ;
+             topo:connectedWith work:port2_1 ,
+                                work:port3_0 ;
+             topo:navigableTo work:port3_1 ;
+             topo:nonNavigableTo work:port2_0 ;
+             topo:onElement work:lin4 ;
+             rdfs:label "port4_1" ;
+             rgeo:hasGeometry work:port4_1_geometry .
+
+
+###  https://cdm.ovh/examples#port4_1_geometry
+work:port4_1_geometry rdf:type owl:NamedIndividual ,
+                               rgeo:Geometry ;
+                      geo:asWKT "POINT (399500.0 6537220.0)" ;
+                      rgeo:asWKT "POINT (399500.0 6537220.0)" ;
+                      rgeo:geometryOf work:port4_1 .
+
+
+###  https://cdm.ovh/rsm/schemes/aggr#MAX
+<https://cdm.ovh/rsm/schemes/aggr#MAX> rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
