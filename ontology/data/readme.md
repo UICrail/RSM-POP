@@ -49,4 +49,12 @@ The sample was set up using the OntoRail Workbench. The resulting file is availa
 
 <img width="1868" height="1008" alt="image" src="https://github.com/user-attachments/assets/8fc0aca7-4e75-4744-bba2-b939f6b61a0b" />
 
+## RDF file, commented
 
+### Class-level : referencing the ERA property
+
+<img width="2102" height="842" alt="image" src="https://github.com/user-attachments/assets/65f009fc-58e8-40c9-a68f-51483d3eaf7c" />
+
+### Individual-level : property values
+
+<img width="2139" height="1126" alt="image" src="https://github.com/user-attachments/assets/64b81c3b-5b61-40a6-b92a-8d11ae7a3d49" />
