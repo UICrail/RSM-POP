@@ -1,0 +1,157 @@
+@prefix : <https://cdm.ovh/rsm/schemes/side#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://cdm.ovh/rsm/schemes/side#> .
+
+<https://cdm.ovh/rsm/schemes/side> rdf:type owl:Ontology ;
+                                    dc:creator "Airy Magnien" ;
+                                    dc:description "List of terms denoting aggregation methods for intensive properties" ;
+                                    dc:title "Aggregation methods terminology"@en ;
+                                    dcterms:created "18 June 2026" ;
+                                    dcterms:license "https://creativecommons.org/licenses/by-sa/4.0/" ;
+                                    vann:preferredNamespacePrefix "aggr" ;
+                                    vann:preferredNamespaceUri "https://cdm.ovh/rsm/schemes/aggr" ;
+                                    rdfs:comment "Aggregation methods cannot be used in combination."@en ;
+                                    skos:scopeNote "An aggregation method for some intensive property P tells how to evaluate P(A U B) when P(A) and P(B) are known. Property values can be numeric, enumerated, ordered."@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+dc:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+dcterms:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+dcterms:license rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+skos:altLabel rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#scopeNote
+skos:scopeNote rdf:type owl:AnnotationProperty .
+
+### https://cdm.ovh/rsm/schemes/aggr#WeightingFactor
+:weightingFactor rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#inScheme
+skos:inScheme rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+skos:Concept rdf:type owl:Class .
+
+
+###  http://www.w3.org/2004/02/skos/core#ConceptScheme
+skos:ConceptScheme rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://cdm.ovh/rsm/schemes/aggr#EQ
+:EQ rdf:type owl:NamedIndividual ,
+              skos:Concept ;
+     skos:inScheme :Aggregation_scheme ;
+     rdfs:label "EQ"@en ;
+     skos:prefLabel "EQ"@en ;
+     skos:altLabel "Equal"@en ;
+     rdfs:comment "If P(A) = P(B) = X, then P(A U B) = X" .
+
+
+###  https://cdm.ovh/rsm/schemes/side#MIN
+:MIN rdf:type owl:NamedIndividual ,
+                 skos:Concept ;
+        skos:inScheme :Aggregation_scheme ;
+        rdfs:label "MIN"@en ;
+        skos:prefLabel "MIN"@en ;
+        skos:altLabel "Minimum"@en ;
+        rdfs:comment "P(A U B) = MIN(P(A), P(B))" .
+
+
+###  https://cdm.ovh/rsm/schemes/side#MAX
+:MAX rdf:type owl:NamedIndividual ,
+               skos:Concept ;
+      skos:inScheme :Aggregation_scheme ;
+      rdfs:comment "P(A U B) = MAX(P(A), P(B))"@en ;
+      rdfs:label "MAX"@en ;
+      skos:prefLabel "MAX"@en ;
+      skos:altLabel "Maximum"@en .
+
+
+###  https://cdm.ovh/rsm/schemes/side#AVE
+:AVE rdf:type owl:NamedIndividual ,
+               skos:Concept ;
+      skos:inScheme :Aggregation_scheme ;
+      rdfs:label "AVE"@en ;
+      skos:prefLabel "AVE"@en ;
+      skos:altLabel "Average"@en .
+
+
+###  https://cdm.ovh/rsm/schemes/side#WAV
+:WAV rdf:type owl:NamedIndividual ,
+                skos:Concept ;
+       skos:inScheme :Aggregation_scheme ;
+       rdfs:label "WAV"@en ;
+       skos:altLabel "Weighted average"@en ;
+       skos:prefLabel "WAV"@en ;
+      rdfs:comment "weighting factor to be documented separately (using annotation)"@en .
+
+
+###  https://cdm.ovh/rsm/schemes/side#LIST
+:LIST rdf:type owl:NamedIndividual ,
+                 skos:Concept ;
+        skos:inScheme :Aggregation_scheme ;
+        rdfs:label "LIST"@en ;
+        skos:altLabel "List (unordered)"@en ;
+        skos:prefLabel "LIST"@en ;
+        rdfs:comment "P(A U B) = [P(A), P(B)] and assume list flattening for associativity"@en .
+
+
+###  https://cdm.ovh/rsm/schemes/side#Aggregation_scheme
+:Aggregation_scheme rdf:type owl:NamedIndividual ,
+                       skos:ConceptScheme ;
+              rdfs:label "Sides scheme"@en .
