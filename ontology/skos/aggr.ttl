@@ -1,4 +1,4 @@
-@prefix : <https://cdm.ovh/rsm/schemes/side#> .
+@prefix : <https://cdm.ovh/rsm/schemes/aggr#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -8,9 +8,9 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <https://cdm.ovh/rsm/schemes/side#> .
+@base <https://cdm.ovh/rsm/schemes/aggr#> .
 
-<https://cdm.ovh/rsm/schemes/side> rdf:type owl:Ontology ;
+<https://cdm.ovh/rsm/schemes/aggr> rdf:type owl:Ontology ;
                                     dc:creator "Airy Magnien" ;
                                     dc:description "List of terms denoting aggregation methods for intensive properties" ;
                                     dc:title "Aggregation methods terminology"@en ;
@@ -102,7 +102,7 @@ skos:ConceptScheme rdf:type owl:Class .
      rdfs:comment "If P(A) = P(B) = X, then P(A U B) = X" .
 
 
-###  https://cdm.ovh/rsm/schemes/side#MIN
+###  https://cdm.ovh/rsm/schemes/aggr#MIN
 :MIN rdf:type owl:NamedIndividual ,
                  skos:Concept ;
         skos:inScheme :Aggregation_scheme ;
@@ -112,7 +112,7 @@ skos:ConceptScheme rdf:type owl:Class .
         rdfs:comment "P(A U B) = MIN(P(A), P(B))" .
 
 
-###  https://cdm.ovh/rsm/schemes/side#MAX
+###  https://cdm.ovh/rsm/schemes/aggr#MAX
 :MAX rdf:type owl:NamedIndividual ,
                skos:Concept ;
       skos:inScheme :Aggregation_scheme ;
@@ -122,7 +122,7 @@ skos:ConceptScheme rdf:type owl:Class .
       skos:altLabel "Maximum"@en .
 
 
-###  https://cdm.ovh/rsm/schemes/side#AVE
+###  https://cdm.ovh/rsm/schemes/aggr#AVE
 :AVE rdf:type owl:NamedIndividual ,
                skos:Concept ;
       skos:inScheme :Aggregation_scheme ;
@@ -131,7 +131,7 @@ skos:ConceptScheme rdf:type owl:Class .
       skos:altLabel "Average"@en .
 
 
-###  https://cdm.ovh/rsm/schemes/side#WAV
+###  https://cdm.ovh/rsm/schemes/aggr#WAV
 :WAV rdf:type owl:NamedIndividual ,
                 skos:Concept ;
        skos:inScheme :Aggregation_scheme ;
@@ -141,7 +141,7 @@ skos:ConceptScheme rdf:type owl:Class .
       rdfs:comment "weighting factor to be documented separately (using annotation)"@en .
 
 
-###  https://cdm.ovh/rsm/schemes/side#LIST
+###  https://cdm.ovh/rsm/schemes/aggr#LIST
 :LIST rdf:type owl:NamedIndividual ,
                  skos:Concept ;
         skos:inScheme :Aggregation_scheme ;
@@ -151,7 +151,7 @@ skos:ConceptScheme rdf:type owl:Class .
         rdfs:comment "P(A U B) = [P(A), P(B)] and assume list flattening for associativity"@en .
 
 
-###  https://cdm.ovh/rsm/schemes/side#Aggregation_scheme
+###  https://cdm.ovh/rsm/schemes/aggr#Aggregation_scheme
 :Aggregation_scheme rdf:type owl:NamedIndividual ,
                        skos:ConceptScheme ;
-              rdfs:label "Sides scheme"@en .
+              rdfs:label "Aggregation scheme for intensive property values"@en .
