@@ -47,5 +47,6 @@ _Note: the definition suggests that actual, not nominal (=design?) value, is the
 
 The sample was set up using the OntoRail Workbench. The resulting file is available in this folder (test_pop_1.ttl).
 
-<img width="874" height="500" alt="image" src="https://github.com/user-attachments/assets/e4e672b0-ef55-4753-a0dd-f61668f1b2e3" />
+<img width="1868" height="1008" alt="image" src="https://github.com/user-attachments/assets/8fc0aca7-4e75-4744-bba2-b939f6b61a0b" />
+
 
