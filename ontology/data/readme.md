@@ -27,4 +27,16 @@ In our particular example, it is possible to state maximum contact wire height (
 * on the part of a track that actually has an overhead contact line (ERA ontology only allows all-or-nothing, or mixed characteristics with no boundaries)
 * without consideration of the "track" component or "infrastructure" subsystem when only the "energy" subsystem is being considered.
 
-ERA ontology defines a high number of infrastructure-bound characteristics that are documented in past and current editions of the RINF; to re-using these characteristics as they are originally defined is of high value, and is made possible by the complementary character of the ERA ontology (an epistemic ontology modelling the RINF) and the CDM ontologies (mostly taking the realist stance) via the RSM-POP epistemic module.
+ERA ontology defines a high number of infrastructure-bound characteristics that are documented in past and current editions of the RINF. RSM-POP allows to use these characteristics as originally defined. This is made possible by the complementary character of the ERA ontology (an epistemic ontology modelling the RINF) and the CDM and RSM ontologies (mostly taking the realist stance) via the RSM-POP epistemic module.
+
+# Example
+
+## ERA property
+
+A property made available by ERA ontology 3.3.1 is: http://data.europa.eu/949/maximumContactWireHeight 
+Main annotations found are:
+(Definition) Indication of the maximum contact wire height expressed in metres  
+(Provenance) The value given can be design value or the last known measured value. If there is no change in height, nominal value will be given.
+_Note: the definition suggests that actual, not nominal (=design?) value, is the desired characteristic value. “Can” is somewhat misleading. RINF is to serve rolling stock compatibility checks, so actual values (not: nominal) are of interest._
+<img width="399" height="364" alt="image" src="https://github.com/user-attachments/assets/9eddcb91-2dd3-4512-a6ef-f41d0f6ee3cd" />
+
